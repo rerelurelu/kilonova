@@ -1,8 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '@fontsource/overpass';
+import '@fontsource/noto-sans-jp';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+import { ChakraProvider } from '@chakra-ui/react';
+import { NextPage } from 'next';
+import type { AppProps } from 'next/app';
+import theme from '../theme/theme';
 
-export default MyApp
+const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
+};
+
+export default MyApp;
