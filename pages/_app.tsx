@@ -11,7 +11,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <Header />
-      <Box pt={16} h="100vh">
+      <Box pt={16} h={'100vh'}>
         <Component {...pageProps} />
       </Box>
     </ChakraProvider>
