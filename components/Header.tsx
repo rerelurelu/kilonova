@@ -10,34 +10,39 @@ const entries = [
 const Header: NextPage = () => {
   return (
     <Box
-      as="header"
-      top="0"
-      left="0"
-      w="full"
+      as={'header'}
+      top={'0'}
+      left={'0'}
+      w={'full'}
       zIndex={40}
-      bg="gray.900/70"
-      backdropBlur="8px"
-      boxShadow="md"
-      pos="fixed"
-      borderBottom={2}
-      borderBottomColor="cyan.200"
+      bg={'gray.900'}
+      backdropBlur={'8px'}
+      boxShadow={'outline'}
+      pos={'fixed'}
+      borderBottom={'1px'}
+      borderBottomColor={'cyan.200'}
     >
-      <Flex justify="space-between" alignItems="center" px={6} h={16} color="cyan.400">
+      <Flex justify={'space-between'} alignItems={'center'} px={6} h={16} color={'cyan.400'}>
         <NextLink href="/">
           <Link
-            fontWeight="bold"
-            fontSize="3xl"
+            fontWeight={'bold'}
+            fontSize={'3xl'}
             _hover={{ textDecor: 'none' }}
           >{`zoniha's blog`}</Link>
         </NextLink>
-        <Box as="nav">
-          <UnorderedList display="flex" fontWeight="semibold" fontSize="lg" listStyleType="none">
+        <Box as={'nav'}>
+          <UnorderedList
+            display={'flex'}
+            fontWeight={'semibold'}
+            fontSize={'lg'}
+            listStyleType={'none'}
+          >
             {entries.map(({ href, content }) => {
               return (
                 <ListItem key={href}>
                   <NextLink href={href}>
                     <Link
-                      textTransform="uppercase"
+                      textTransform={'uppercase'}
                       px={3}
                       _hover={{ textDecor: 'none', opacity: '0.7' }}
                     >
