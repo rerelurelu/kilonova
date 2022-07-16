@@ -1,7 +1,10 @@
 import type { NextPage } from 'next';
+import MyHead from '../components/MyHead';
+
+const TITLE = 'Blog';
 
 const Home: NextPage = () => {
-  return <h1>🍞</h1>;
+  return <MyHead title={TITLE} />;
 };
 
 export default Home;
