@@ -1,6 +1,7 @@
 import { TabList, Tabs, Text, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
+import BlogField from '../components/BlogField';
 import MyHead from '../components/MyHead';
 import ZennPostsField, { Props } from '../components/ZennPostsField';
 
@@ -27,7 +28,7 @@ const Home: NextPage<Props> = ({ zennPosts }) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <Text>Blog</Text>
+            <BlogField />
           </TabPanel>
           <TabPanel>
             <ZennPostsField zennPosts={zennPosts} />
