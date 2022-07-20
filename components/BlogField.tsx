@@ -1,13 +1,14 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Box, Grid, Skeleton, Text, VStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
+import { GET_POSTS_QUERY } from '../graphql/queries/GetPostsQuery';
 
 // 記事数によって変える（最大4 or 5必要）
 const skeletonNum: number[] = [1];
 
 const BlogField: NextPage = () => {
-  const { data, loading } = useQuery(POSTS);
+  const { data, loading } = useQuery(GET_POSTS_QUERY);
 
   return (
     <Grid mt={'100px'} justifyItems={'center'} alignItems={'center'} gap={'40px'}>
@@ -49,7 +50,7 @@ const BlogField: NextPage = () => {
           })
         : data.posts.map((post: any) => {
             return (
-              <NextLink href={post.id} key={post.id}>
+              <NextLink href={`/blog/${post.slug}`} key={post.id}>
                 <Box
                   bg={'gray.800'}
                   w={'80%'}
@@ -58,8 +59,10 @@ const BlogField: NextPage = () => {
                   borderRadius={'15px'}
                   pos={'relative'}
                   cursor={'pointer'}
+                  boxShadow={'lg'}
                   transition={'transform .4s'}
-                  _hover={{ opacity: '0.75', transform: 'scale(1.05)' }}
+                  transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
+                  _hover={{ transform: 'scale(1.02)' }}
                 >
                   <VStack spacing={'10px'} alignItems={'normal'} padding={'20px'}>
                     <Text fontSize={'lg'} fontWeight={'semibold'}>
@@ -84,16 +87,3 @@ const BlogField: NextPage = () => {
 };
 
 export default BlogField;
-
-const POSTS = gql`
-  query MyQuery {
-    posts {
-      createdAt
-      title
-      content {
-        html
-      }
-      id
-    }
-  }
-`;
