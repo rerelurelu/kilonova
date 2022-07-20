@@ -1,5 +1,5 @@
 import { TabList, Tabs, Text, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Parser from 'rss-parser';
 import BlogField from '../components/BlogField';
 import MyHead from '../components/MyHead';
@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ zennPosts }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const parser = new Parser();
   const feedZenn = await parser.parseURL(ZENN_FEED_URL);
 
