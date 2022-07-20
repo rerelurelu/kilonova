@@ -10,7 +10,7 @@ const theme = extendTheme({
       body: {
         backgroundColor: 'gray.900',
         color: 'cyan.200',
-        letterSpacing: '1px',
+        letterSpacing: '0.0625rem',
       },
     },
   },

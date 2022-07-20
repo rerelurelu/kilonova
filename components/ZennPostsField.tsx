@@ -14,7 +14,7 @@ export type Props = {
 
 const ZennPostsField: NextPage<Props> = ({ zennPosts }) => {
   return (
-    <Grid mt={'100px'} justifyItems={'center'} alignItems={'center'} gap={'40px'}>
+    <Grid mt={'6.25rem'} justifyItems={'center'} alignItems={'center'} gap={'2.5rem'}>
       {zennPosts.map((post) => {
         return (
           <NextLink href={post.link} key={post.link.slice(-14)}>
@@ -23,7 +23,7 @@ const ZennPostsField: NextPage<Props> = ({ zennPosts }) => {
               w={'80%'}
               maxW={'1000px'}
               h={'150px'}
-              borderRadius={'15px'}
+              borderRadius={'0.9375rem'}
               pos={'relative'}
               cursor={'pointer'}
               boxShadow={'lg'}
@@ -31,14 +31,14 @@ const ZennPostsField: NextPage<Props> = ({ zennPosts }) => {
               transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
               _hover={{ transform: 'scale(1.02)' }}
             >
-              <VStack spacing={'10px'} alignItems={'normal'} padding={'20px'}>
+              <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>
                 <Text fontSize={'lg'} fontWeight={'semibold'}>
                   {post.title}
                 </Text>
                 <Text
                   pos={'absolute'}
-                  bottom={'5px'}
-                  left={'20px'}
+                  bottom={'0.3125rem'}
+                  left={'1.25rem'}
                   fontSize={'sm'}
                   color={'cyan.700'}
                 >

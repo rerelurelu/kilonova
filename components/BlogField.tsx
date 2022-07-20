@@ -21,15 +21,15 @@ const BlogField: NextPage = () => {
                 w={'80%'}
                 maxW={'1000px'}
                 h={'150px'}
-                borderRadius={'15px'}
+                borderRadius={'0.9375rem'}
                 pos={'relative'}
               >
-                <VStack spacing={'10px'} alignItems={'normal'} padding={'20px'}>
+                <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>
                   <Skeleton
                     startColor="cyan.100"
                     endColor="cyan.300"
                     h={'30px'}
-                    borderRadius={'10px'}
+                    borderRadius={'0.625rem'}
                   />
                   <Skeleton
                     startColor="cyan.100"
@@ -37,10 +37,10 @@ const BlogField: NextPage = () => {
                     h={'15px'}
                     w={'20%'}
                     maxW={'200px'}
-                    borderRadius={'5px'}
+                    borderRadius={'0.3125rem'}
                     pos={'absolute'}
-                    bottom={'10px'}
-                    left={'20px'}
+                    bottom={'0.625rem'}
+                    left={'1.25rem'}
                     fontSize={'sm'}
                     color={'cyan.700'}
                   />
@@ -56,7 +56,7 @@ const BlogField: NextPage = () => {
                   w={'80%'}
                   maxW={'1000px'}
                   h={'150px'}
-                  borderRadius={'15px'}
+                  borderRadius={'0.9375rem'}
                   pos={'relative'}
                   cursor={'pointer'}
                   boxShadow={'lg'}
@@ -64,14 +64,14 @@ const BlogField: NextPage = () => {
                   transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
                   _hover={{ transform: 'scale(1.02)' }}
                 >
-                  <VStack spacing={'10px'} alignItems={'normal'} padding={'20px'}>
+                  <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>
                     <Text fontSize={'lg'} fontWeight={'semibold'}>
                       {post.title}
                     </Text>
                     <Text
                       pos={'absolute'}
-                      bottom={'5px'}
-                      left={'20px'}
+                      bottom={'0.3125rem'}
+                      left={'1.25rem'}
                       fontSize={'sm'}
                       color={'cyan.700'}
                     >

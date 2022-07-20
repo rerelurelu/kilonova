@@ -14,7 +14,7 @@ const Header: NextPage = () => {
       top={'0'}
       left={'0'}
       w={'full'}
-      zIndex={40}
+      zIndex={'40'}
       bg={'gray.900'}
       backdropBlur={'8px'}
       boxShadow={'outline'}
@@ -22,7 +22,13 @@ const Header: NextPage = () => {
       borderBottom={'1px'}
       borderBottomColor={'cyan.200'}
     >
-      <Flex justify={'space-between'} alignItems={'center'} px={6} h={16} color={'cyan.400'}>
+      <Flex
+        justify={'space-between'}
+        alignItems={'center'}
+        px={'1.5rem'}
+        h={'64px'}
+        color={'cyan.400'}
+      >
         <NextLink href="/">
           <Link
             fontWeight={'bold'}
@@ -43,7 +49,7 @@ const Header: NextPage = () => {
                   <NextLink href={href}>
                     <Link
                       textTransform={'uppercase'}
-                      px={3}
+                      px={'0.75rem'}
                       _hover={{ textDecor: 'none', opacity: '0.7' }}
                     >
                       {content}

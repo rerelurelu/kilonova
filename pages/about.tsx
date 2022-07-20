@@ -16,11 +16,11 @@ const description = {
 
 const About: NextPage = () => {
   return (
-    <Box mx={'auto'} px={'24px'} mt={'80px'}>
+    <Box mx={'auto'} px={'1.5rem'} mt={'5rem'}>
       <Grid w={'full'} justifyItems={'center'} alignItems={'center'} gap={'24px'}>
         <Image
           src={'avatar.png'}
-          boxSize={192}
+          boxSize={'192px'}
           border={'4px'}
           borderColor={'yellow.300'}
           borderRadius={'full'}
@@ -30,7 +30,7 @@ const About: NextPage = () => {
         <UnorderedList display={'flex'} flexWrap={'wrap'} listStyleType={'none'}>
           {links.map(({ href, content }) => {
             return (
-              <ListItem key={content} ml={'4px'}>
+              <ListItem key={content} ml={'0.25rem'}>
                 <NextLink href={href} target={'_blank'}>
                   <Link textDecor={'underline'} _hover={{ opacity: '0.75' }}>
                     {content}
@@ -38,7 +38,7 @@ const About: NextPage = () => {
                 </NextLink>
                 <Box
                   as="span"
-                  ml={1}
+                  ml={'0.25rem'}
                   transform={'rotate(-45deg)'}
                   display={'inline-block'}
                   cursor={'default'}
@@ -52,15 +52,15 @@ const About: NextPage = () => {
       </Grid>
       <Flex
         w={'full'}
-        mt={'56px'}
-        lineHeight={'26px'}
+        mt={'3.5rem'}
+        lineHeight={'1.625rem'}
         flexDir={'column'}
         justifyContent={'center'}
         alignItems={'center'}
       >
         <Box maxW={'1000px'} textAlign={'center'}>
           <Text>{description.para1}</Text>
-          <Text mt={'28px'}>{description.para2}</Text>
+          <Text mt={'1.75rem'}>{description.para2}</Text>
         </Box>
       </Flex>
     </Box>
