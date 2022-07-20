@@ -26,8 +26,10 @@ const ZennPostsField: NextPage<Props> = ({ zennPosts }) => {
               borderRadius={'15px'}
               pos={'relative'}
               cursor={'pointer'}
+              boxShadow={'lg'}
               transition={'transform .4s'}
-              _hover={{ opacity: '0.75', transform: 'scale(1.05)' }}
+              transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
+              _hover={{ transform: 'scale(1.02)' }}
             >
               <VStack spacing={'10px'} alignItems={'normal'} padding={'20px'}>
                 <Text fontSize={'lg'} fontWeight={'semibold'}>
