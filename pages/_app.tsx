@@ -6,18 +6,12 @@ import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import theme from '../theme/theme';
 import Header from '../components/Header';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
-const CONTENT_API = process.env.NEXT_PUBLIC_CONTENT_API;
-
-const client = new ApolloClient({
-  uri: CONTENT_API,
-  cache: new InMemoryCache(),
-});
+import { ApolloProvider } from '@apollo/client';
+import { ApolloClientConfig } from '../graphql/config/ApolloClientConfig';
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={ApolloClientConfig}>
       <ChakraProvider theme={theme}>
         <Header />
         <Box pt={16} h={'100vh'} overflowY={'scroll'} overscrollBehaviorY={'contain'}>
