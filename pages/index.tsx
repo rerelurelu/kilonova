@@ -13,7 +13,7 @@ const Home: NextPage<Props> = ({ zennPosts }) => {
     <>
       <MyHead title={TITLE} />
       <Text
-        mt={'70px'}
+        mt={'4.375rem'}
         fontSize={'3xl'}
         fontWeight={'semibold'}
         textAlign={'center'}
@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ zennPosts }) => {
       >
         My Posts
       </Text>
-      <Tabs mx={'15%'} mt={'80px'} pb={'200px'} colorScheme={'cyan'}>
+      <Tabs mx={'15%'} mt={'5rem'} pb={'12.5rem'} colorScheme={'cyan'}>
         <TabList>
           <Tab>Blog</Tab>
           <Tab>Zenn</Tab>
