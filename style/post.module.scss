@@ -1,0 +1,59 @@
+$font-color-link: #F6E05E;
+$font-color-code: #FC8181;
+$bg-color-code-area: rgb(40, 42, 54);
+
+.markdown {
+  margin-top: 2em;
+  width: 100%;
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+  }
+  h1, h2{
+    margin-bottom: .3125em;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.75em;
+  }
+  h3, h4, h5, h6{
+    font-size: 1.5em;
+  }
+  a{
+    color: $font-color-link;
+    text-decoration: underline;
+  }
+  img {
+    max-width: 90%;
+  }
+  ul {
+    margin-left: 1.7em;
+    li {
+      margin: 1em 0;
+    }
+  }
+  p {
+    margin-top: 2em;
+    code {
+      padding: 0.125em;
+      color: $font-color-code;
+      background-color: $bg-color-code-area;
+      border-radius: 3px;
+    }
+  }
+  pre {
+    max-width: 95%;
+    overflow-y: hidden;
+    background-color: $bg-color-code-area;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px 6px 10px;
+    margin: 3em auto;
+    border-radius: 5px;
+    code {
+      padding: 0.625em;
+      line-height: 1.8em;
+      color: $font-color-code;
+      background-color: inherit;
+    }
+  }
+}
