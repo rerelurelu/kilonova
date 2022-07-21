@@ -1,4 +1,4 @@
-import { Box, Center, Divider, Grid, Heading, HStack, Text } from '@chakra-ui/react';
+import { Center, Divider, Grid, Heading, HStack, Text } from '@chakra-ui/react';
 import { NextPage } from 'next';
 
 const Custom404: NextPage = () => {
