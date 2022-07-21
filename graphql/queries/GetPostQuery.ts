@@ -5,6 +5,7 @@ export const GET_POST_QUERY: DocumentNode = gql`
     posts(where: { slug: $slug }) {
       createdAt
       title
+      isSecret
       content
     }
   }
