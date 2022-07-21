@@ -5,18 +5,20 @@ import { Box, ChakraProvider } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import theme from '../theme/theme';
-import Header from '../components/Header';
+import Header from '../components/molecules/Header';
 import { ApolloProvider } from '@apollo/client';
 import { ApolloClientConfig } from '../graphql/config/ApolloClientConfig';
+import Footer from '../components/molecules/Footer';
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
     <ApolloProvider client={ApolloClientConfig}>
       <ChakraProvider theme={theme}>
-        <Header />
-        <Box pt={'64px'} h={'100vh'} overflowY={'scroll'} overscrollBehaviorY={'contain'}>
+        <Box minH={'100vh'}>
+          <Header />
           <Component {...pageProps} />
         </Box>
+        <Footer />
       </ChakraProvider>
     </ApolloProvider>
   );
