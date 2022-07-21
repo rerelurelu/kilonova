@@ -1,14 +1,15 @@
 import { TabList, Tabs, Text, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
 import type { GetServerSideProps, NextPage } from 'next';
 import Parser from 'rss-parser';
-import BlogField from '../components/BlogField';
-import MyHead from '../components/MyHead';
-import ZennPostsField, { Props } from '../components/ZennPostsField';
+import BlogField from '../components/organisms/BlogField';
+import MyHead from '../components/molecules/MyHead';
+import ZennPostsField from '../components/organisms/ZennPostsField';
+import { ZennPostsProps } from '../types/props';
 
 const TITLE = 'Blog';
 const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;
 
-const Home: NextPage<Props> = ({ zennPosts }) => {
+const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
   return (
     <>
       <MyHead title={TITLE} />
