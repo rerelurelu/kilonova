@@ -18,7 +18,7 @@ const Header: NextPage = () => {
       bg={'gray.900'}
       backdropBlur={'8px'}
       boxShadow={'outline'}
-      pos={'fixed'}
+      pos={'sticky'}
       borderBottom={'1px'}
       borderBottomColor={'cyan.200'}
     >
