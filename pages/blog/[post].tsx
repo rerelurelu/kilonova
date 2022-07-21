@@ -1,7 +1,7 @@
 import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
 import { GetServerSideProps, NextPage } from 'next';
 import ReactMarkdown from 'react-markdown';
-import MyHead from '../../components/MyHead';
+import MyHead from '../../components/molecules/MyHead';
 import { ApolloClientConfig } from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
 import style from '../../style/post.module.scss';
