@@ -1,4 +1,4 @@
-import { TabList, Tabs, Text, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
+import { TabList, Tabs, Tab, TabPanels, TabPanel, Heading } from '@chakra-ui/react';
 import type { GetServerSideProps, NextPage } from 'next';
 import Parser from 'rss-parser';
 import BlogField from '../components/organisms/BlogField';
@@ -13,7 +13,8 @@ const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
   return (
     <>
       <MyHead title={TITLE} />
-      <Text
+      <Heading
+        as={'h1'}
         mt={'4.375rem'}
         fontSize={'3xl'}
         fontWeight={'semibold'}
@@ -21,7 +22,7 @@ const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
         color={'yellow.300'}
       >
         My Posts
-      </Text>
+      </Heading>
       <Tabs mx={'15%'} mt={'5rem'} pb={'12.5rem'} colorScheme={'cyan'}>
         <TabList>
           <Tab>Blog</Tab>
