@@ -6,8 +6,12 @@ import PostCard from '../molecules/PostCard';
 import PostsFieldLayout from '../templates/PostsFieldLayout';
 import SkeletonCard from '../molecules/SkeletonCard';
 
-// 記事数によって変える（最大4 or 5必要）
-const skeletonNum: number[] = [1];
+// PostCardのスケルトンの数
+const skeletonNum: number[] = [];
+
+for (let i = 0; i < 1; i++) {
+  skeletonNum.push(i);
+}
 
 const BlogField: NextPage = () => {
   const { data, loading } = useQuery(GET_POSTS_QUERY);
