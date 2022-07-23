@@ -1,6 +1,6 @@
-import { Box, Flex, Link, ListItem, UnorderedList } from '@chakra-ui/react';
+import { Box, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import { NextPage } from 'next';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 const entries = [
   { href: '/', content: 'blog' },
@@ -29,13 +29,13 @@ const Header: NextPage = () => {
         h={'64px'}
         color={'cyan.400'}
       >
-        <NextLink href="/">
-          <Link
+        <Link href="/">
+          <Text
             fontWeight={'bold'}
             fontSize={'3xl'}
             _hover={{ textDecor: 'none' }}
-          >{`zoniha's blog`}</Link>
-        </NextLink>
+          >{`zoniha's blog`}</Text>
+        </Link>
         <Box as={'nav'}>
           <UnorderedList
             display={'flex'}
@@ -46,15 +46,15 @@ const Header: NextPage = () => {
             {entries.map(({ href, content }) => {
               return (
                 <ListItem key={href}>
-                  <NextLink href={href}>
-                    <Link
+                  <Link href={href}>
+                    <Text
                       textTransform={'uppercase'}
                       px={'0.75rem'}
                       _hover={{ textDecor: 'none', opacity: '0.7' }}
                     >
                       {content}
-                    </Link>
-                  </NextLink>
+                    </Text>
+                  </Link>
                 </ListItem>
               );
             })}
