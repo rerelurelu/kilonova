@@ -9,7 +9,7 @@ import SkeletonCard from '../molecules/SkeletonCard';
 // PostCardのスケルトンの数
 const skeletonNum: number[] = [];
 
-for (let i = 0; i < 1; i++) {
+for (let i = 0; i < 2; i++) {
   skeletonNum.push(i);
 }
 

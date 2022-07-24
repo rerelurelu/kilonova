@@ -33,7 +33,7 @@ const Header: NextPage = () => {
           <Text
             fontWeight={'bold'}
             fontSize={'3xl'}
-            _hover={{ textDecor: 'none' }}
+            _hover={{ textDecor: 'none', cursor: 'pointer' }}
           >{`zoniha's blog`}</Text>
         </Link>
         <Box as={'nav'}>
@@ -50,7 +50,7 @@ const Header: NextPage = () => {
                     <Text
                       textTransform={'uppercase'}
                       px={'0.75rem'}
-                      _hover={{ textDecor: 'none', opacity: '0.7' }}
+                      _hover={{ textDecor: 'none', opacity: '0.7', cursor: 'pointer' }}
                     >
                       {content}
                     </Text>

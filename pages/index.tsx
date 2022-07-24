@@ -20,6 +20,7 @@ const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
         fontWeight={'semibold'}
         textAlign={'center'}
         color={'yellow.300'}
+        cursor={'default'}
       >
         My Posts
       </Heading>
