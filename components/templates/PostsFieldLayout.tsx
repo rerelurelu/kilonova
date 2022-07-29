@@ -4,7 +4,12 @@ import { ChildrenProps } from '../../types/props';
 
 const PostsFieldLayout: NextPage<ChildrenProps> = ({ children }) => {
   return (
-    <Grid mt={'100px'} justifyItems={'center'} alignItems={'center'} gap={'40px'}>
+    <Grid
+      mt={{ base: '3.125rem', md: '6.25rem' }}
+      justifyItems={'center'}
+      alignItems={'center'}
+      gap={'40px'}
+    >
       {children}
     </Grid>
   );

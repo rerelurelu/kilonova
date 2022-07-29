@@ -67,7 +67,7 @@ const Blog: NextPage<any> = ({ post }) => {
           <Flex
             as="article"
             mt={'6.25rem'}
-            pb={'12.5rem'}
+            pb={{ base: '4rem', md: '12.5rem' }}
             flexDir={'column'}
             justifyContent={'center'}
             alignItems={'center'}

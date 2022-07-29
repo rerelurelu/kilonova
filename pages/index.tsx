@@ -24,7 +24,12 @@ const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
       >
         My Posts
       </Heading>
-      <Tabs mx={'15%'} mt={'5rem'} pb={'12.5rem'} colorScheme={'cyan'}>
+      <Tabs
+        mx={{ base: '5%', md: '15%' }}
+        mt={'5rem'}
+        pb={{ base: '4rem', md: '12.5rem' }}
+        colorScheme={'cyan'}
+      >
         <TabList>
           <Tab>Blog</Tab>
           <Tab>Zenn</Tab>

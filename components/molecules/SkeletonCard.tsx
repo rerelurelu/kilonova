@@ -5,10 +5,10 @@ const SkeletonCard: NextPage = () => {
   return (
     <Box
       bg={'gray.800'}
-      w={'80%'}
+      w={{ base: '100%', md: '80%' }}
       maxW={'1000px'}
       h={'150px'}
-      borderRadius={'0.9375rem'}
+      borderRadius={'1rem'}
       pos={'relative'}
     >
       <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>

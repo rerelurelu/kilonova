@@ -8,7 +8,7 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
     <NextLink href={href}>
       <Box
         bg={'gray.800'}
-        w={'80%'}
+        w={{ base: '100%', md: '80%' }}
         maxW={'1000px'}
         h={'150px'}
         borderRadius={'0.9375rem'}
@@ -20,9 +20,11 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
         _hover={{ transform: 'scale(1.02)' }}
       >
         <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>
-          <Text fontSize={'lg'} fontWeight={'semibold'}>
-            {title}
-          </Text>
+          <Box maxH={'80%'}>
+            <Text fontSize={'lg'} fontWeight={'semibold'} noOfLines={3}>
+              {title}
+            </Text>
+          </Box>
           <Text
             pos={'absolute'}
             bottom={'0.3125rem'}

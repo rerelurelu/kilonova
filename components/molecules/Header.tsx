@@ -1,4 +1,4 @@
-import { Box, Flex, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import { Box, Flex, Image, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
@@ -30,11 +30,14 @@ const Header: NextPage = () => {
         color={'cyan.400'}
       >
         <Link href="/">
-          <Text
-            fontWeight={'bold'}
-            fontSize={'3xl'}
-            _hover={{ textDecor: 'none', cursor: 'pointer' }}
-          >{`zoniha's blog`}</Text>
+          <Image
+            w={'40px'}
+            h={'40px'}
+            ml={{ base: '0rem', md: '1rem' }}
+            _hover={{ cursor: 'pointer' }}
+            src="logo.png"
+            alt="header logo"
+          />
         </Link>
         <Box as={'nav'}>
           <UnorderedList
