@@ -9,11 +9,14 @@ const Footer: NextPage = () => {
       h={'60px'}
       mt={'4rem'}
       borderTop={'1px'}
+      borderColor={'cyan.900'}
       py={'1rem'}
       justifyContent={'center'}
       alignItems={'center'}
     >
-      <Text fontSize={'sm'}>© 2022 zoniha</Text>
+      <Text fontSize={'sm'} textColor={'cyan.900'}>
+        © 2022 zoniha
+      </Text>
     </Flex>
   );
 };
