@@ -1,66 +1,20 @@
-import { Box, Button, Divider, Flex, Grid, Heading, Input, Spacer, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
 import { GetServerSideProps, NextPage } from 'next';
-import { useCallback, useState, ChangeEvent } from 'react';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import MyHead from '../../components/molecules/MyHead';
+import AuthField from '../../components/organisms/AuthField';
 import { ApolloClientConfig } from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
 import style from '../../style/post.module.scss';
 
 const Blog: NextPage<any> = ({ post }) => {
-  const [password, setPassword] = useState<string>('');
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
-  const [isError, setIsError] = useState<boolean>(false);
-  console.log(post);
-
-  const handleEnter = useCallback((password: string) => {
-    if (password === process.env.NEXT_PUBLIC_POST_PASSWORD) {
-      setIsSecret(false);
-      setIsError(false);
-    } else {
-      setIsError(true);
-    }
-  }, []);
 
   return (
     <>
       {isSecret ? (
-        <>
-          <MyHead title={'SECURITY ROOM'} />
-          <Grid mt={'13rem'} justifyItems={'center'} alignItems={'center'}>
-            {isError ? (
-              <Text color={'red.500'} mb={'5rem'} fontSize={'2xl'} fontWeight={'bold'}>
-                👻 something went wrong 👻
-              </Text>
-            ) : (
-              <Spacer mb={'7.25rem'} />
-            )}
-            <Input
-              onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-              variant="flushed"
-              color={'cyan.600'}
-              type={'password'}
-              w={'50%'}
-              maxW={'25rem'}
-              textAlign={'center'}
-              autoFocus={true}
-              borderColor={'cyan.600'}
-              _focus={{ borderColor: 'cyan.600', shadow: 'none' }}
-            />
-            <Button
-              bg={'cyan.600'}
-              mt={'7rem'}
-              w={'20%'}
-              maxW={'150px'}
-              color={'yellow.300'}
-              fontWeight={'bold'}
-              _hover={{ opacity: '0.75' }}
-              onClick={() => handleEnter(password)}
-            >
-              ENTER
-            </Button>
-          </Grid>
-        </>
+        <AuthField setIsSecret={setIsSecret} />
       ) : (
         <>
           <MyHead title={post.title} />
