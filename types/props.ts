@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, Dispatch, SetStateAction } from 'react';
 
 type Feed = {
   title: string;
@@ -29,4 +29,8 @@ export type PostCardProps = {
 
 export type ChildrenProps = {
   children: ReactElement;
+};
+
+export type AuthFieldProps = {
+  setIsSecret: Dispatch<SetStateAction<boolean>>;
 };
