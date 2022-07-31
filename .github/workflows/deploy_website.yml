@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.ref }}
-      - uses: amondnet/vercel-action@latest
+      - uses: amondnet/vercel-action@25.1.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
