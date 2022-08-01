@@ -6,19 +6,28 @@ type Feed = {
   isoDate: string;
 };
 
-export type ZennPostsProps = {
-  zennPosts: Array<Feed>;
-};
-
-export type MyHeadProps = {
-  title?: string;
-};
-
 export type BlogPost = {
   id: string;
   title: string;
   slug: string;
   createdAt: string;
+};
+
+export type PostsProps = {
+  zennPosts: Array<Feed>;
+  blogPosts: Array<BlogPost>;
+};
+
+export type ZennPostsProps = {
+  zennPosts: Array<Feed>;
+};
+
+export type BlogFieldProps = {
+  blogPosts: Array<BlogPost>;
+};
+
+export type MyHeadProps = {
+  title?: string;
 };
 
 export type PostCardProps = {
