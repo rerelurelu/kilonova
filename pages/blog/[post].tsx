@@ -7,9 +7,11 @@ import AuthField from '../../components/organisms/AuthField';
 import { ApolloClientConfig } from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
 import style from '../../style/post.module.scss';
+import { convertDateDisplay } from '../../utils/convertDateDisplay';
 
 const Blog: NextPage<any> = ({ post }) => {
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
+  const dateDisplay = convertDateDisplay(post.createdAt.slice(0, 10));
 
   return (
     <>
@@ -37,7 +39,7 @@ const Blog: NextPage<any> = ({ post }) => {
                 Published
               </Text>
               <Text mt={'0.3125rem'} color={'cyan.500'}>
-                {post.createdAt.slice(0, 10)}
+                {dateDisplay}
               </Text>
             </Box>
             <Divider mt={'1.875rem'} />

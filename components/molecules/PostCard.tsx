@@ -2,8 +2,10 @@ import { Box, Text, VStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
 import { PostCardProps } from '../../types/props';
+import { convertDateDisplay } from '../../utils/convertDateDisplay';
 
 const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
+  const dateDisplay = convertDateDisplay(createdAt.slice(0, 10));
   return (
     <NextLink href={href}>
       <Box
@@ -32,7 +34,7 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
             fontSize={'sm'}
             color={'cyan.700'}
           >
-            {createdAt.slice(0, 10)}
+            {dateDisplay}
           </Text>
         </VStack>
       </Box>
