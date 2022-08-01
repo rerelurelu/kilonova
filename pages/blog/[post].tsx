@@ -1,12 +1,14 @@
 import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import MyHead from '../../components/molecules/MyHead';
 import AuthField from '../../components/organisms/AuthField';
 import client from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
+import { GET_POSTS_QUERY } from '../../graphql/queries/GetPostsQuery';
 import style from '../../style/post.module.scss';
+import { BlogPost } from '../../types/props';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
 
 const Blog: NextPage<any> = ({ post }) => {
@@ -53,7 +55,18 @@ const Blog: NextPage<any> = ({ post }) => {
 
 export default Blog;
 
-export const getServerSideProps: GetServerSideProps = async ({ params }: any) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { data } = await client.query({
+    query: GET_POSTS_QUERY,
+  });
+  const paths = data.posts.map((post: BlogPost) => `/blog/${post.slug}`);
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const { data } = await client.query({
     query: GET_POST_QUERY,
     variables: {

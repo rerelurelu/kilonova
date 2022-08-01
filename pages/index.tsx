@@ -1,15 +1,17 @@
 import { TabList, Tabs, Tab, TabPanels, TabPanel, Heading } from '@chakra-ui/react';
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
 import BlogField from '../components/organisms/BlogField';
 import MyHead from '../components/molecules/MyHead';
 import ZennPostsField from '../components/organisms/ZennPostsField';
-import { ZennPostsProps } from '../types/props';
+import { PostsProps } from '../types/props';
+import client from '../graphql/config/ApolloClientConfig';
+import { GET_POSTS_QUERY } from '../graphql/queries/GetPostsQuery';
 
 const TITLE = 'Blog';
 const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;
 
-const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
+const Home: NextPage<PostsProps> = ({ zennPosts, blogPosts }) => {
   return (
     <>
       <MyHead title={TITLE} />
@@ -36,7 +38,7 @@ const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <BlogField />
+            <BlogField blogPosts={blogPosts} />
           </TabPanel>
           <TabPanel>
             <ZennPostsField zennPosts={zennPosts} />
@@ -49,13 +51,18 @@ const Home: NextPage<ZennPostsProps> = ({ zennPosts }) => {
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const parser = new Parser();
   const feedZenn = await parser.parseURL(ZENN_FEED_URL);
+
+  const { data } = await client.query({
+    query: GET_POSTS_QUERY,
+  });
 
   return {
     props: {
       zennPosts: feedZenn.items,
+      blogPosts: data.posts,
     },
   };
 };
