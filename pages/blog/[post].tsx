@@ -4,7 +4,7 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import MyHead from '../../components/molecules/MyHead';
 import AuthField from '../../components/organisms/AuthField';
-import { ApolloClientConfig } from '../../graphql/config/ApolloClientConfig';
+import client from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
 import style from '../../style/post.module.scss';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
@@ -54,7 +54,7 @@ const Blog: NextPage<any> = ({ post }) => {
 export default Blog;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }: any) => {
-  const { data } = await ApolloClientConfig.query({
+  const { data } = await client.query({
     query: GET_POST_QUERY,
     variables: {
       slug: params.post,

@@ -7,12 +7,12 @@ import type { AppProps } from 'next/app';
 import theme from '../theme/theme';
 import Header from '../components/molecules/Header';
 import { ApolloProvider } from '@apollo/client';
-import { ApolloClientConfig } from '../graphql/config/ApolloClientConfig';
+import client from '../graphql/config/ApolloClientConfig';
 import Footer from '../components/molecules/Footer';
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ApolloProvider client={ApolloClientConfig}>
+    <ApolloProvider client={client}>
       <ChakraProvider theme={theme}>
         <Box minH={'100vh'}>
           <Header />
