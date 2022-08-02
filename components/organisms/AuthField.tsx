@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
-import { AuthFieldProps } from '../../types/props';
 import { Button, Grid, Input, Spacer, Text } from '@chakra-ui/react';
 import { ChangeEvent, useCallback, useState } from 'react';
 import MyHead from '../molecules/MyHead';
+import { AuthFieldProps } from '../../types/props';
 
 const AuthField: NextPage<AuthFieldProps> = ({ setIsSecret }) => {
   const [isError, setIsError] = useState<boolean>(false);
