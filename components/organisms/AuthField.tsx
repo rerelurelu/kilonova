@@ -3,15 +3,19 @@ import { Button, Grid, Input, Spacer, Text } from '@chakra-ui/react';
 import { ChangeEvent, useState } from 'react';
 import MyHead from '../molecules/MyHead';
 import { AuthFieldProps } from '../../types/props';
+import { useRecoilState } from 'recoil';
+import { haveAuthState } from '../../states/atoms/haveAuth';
 
 const AuthField: NextPage<AuthFieldProps> = ({ setIsSecret }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
+  const [_, setHaveAuth] = useRecoilState(haveAuthState);
 
   const handleEnter = (password: string) => {
     if (password === process.env.NEXT_PUBLIC_POST_PASSWORD) {
       setIsSecret(false);
       setIsError(false);
+      setHaveAuth(true);
     } else {
       setIsError(true);
     }

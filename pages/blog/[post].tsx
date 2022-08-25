@@ -2,11 +2,13 @@ import { Box, Divider, Flex, Heading, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useRecoilValue } from 'recoil';
 import MyHead from '../../components/molecules/MyHead';
 import AuthField from '../../components/organisms/AuthField';
 import client from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
 import { GET_POSTS_QUERY } from '../../graphql/queries/GetPostsQuery';
+import { haveAuthState } from '../../states/atoms/haveAuth';
 import style from '../../style/post.module.scss';
 import { BlogPost } from '../../types/props';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
@@ -14,6 +16,11 @@ import { convertDateDisplay } from '../../utils/convertDateDisplay';
 const Blog: NextPage<any> = ({ post }) => {
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
   const dateDisplay = convertDateDisplay(post.createdAt.slice(0, 10));
+  const haveAuth = useRecoilValue(haveAuthState);
+
+  if (haveAuth && isSecret) {
+    setIsSecret(false);
+  }
 
   return (
     <>

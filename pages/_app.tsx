@@ -9,18 +9,21 @@ import theme from '../theme/theme';
 import Header from '../components/molecules/Header';
 import client from '../graphql/config/ApolloClientConfig';
 import Footer from '../components/molecules/Footer';
+import { RecoilRoot } from 'recoil';
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ApolloProvider client={client}>
-      <ChakraProvider theme={theme}>
-        <Box minH={'100vh'}>
-          <Header />
-          <Component {...pageProps} />
-        </Box>
-        <Footer />
-      </ChakraProvider>
-    </ApolloProvider>
+    <RecoilRoot>
+      <ApolloProvider client={client}>
+        <ChakraProvider theme={theme}>
+          <Box minH={'100vh'}>
+            <Header />
+            <Component {...pageProps} />
+          </Box>
+          <Footer />
+        </ChakraProvider>
+      </ApolloProvider>
+    </RecoilRoot>
   );
 };
 
