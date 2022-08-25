@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { Button, Grid, Input, Spacer, Text } from '@chakra-ui/react';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import MyHead from '../molecules/MyHead';
 import { AuthFieldProps } from '../../types/props';
 
@@ -8,17 +8,14 @@ const AuthField: NextPage<AuthFieldProps> = ({ setIsSecret }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
 
-  const handleEnter = useCallback(
-    (password: string) => {
-      if (password === process.env.NEXT_PUBLIC_POST_PASSWORD) {
-        setIsSecret(false);
-        setIsError(false);
-      } else {
-        setIsError(true);
-      }
-    },
-    [setIsSecret]
-  );
+  const handleEnter = (password: string) => {
+    if (password === process.env.NEXT_PUBLIC_POST_PASSWORD) {
+      setIsSecret(false);
+      setIsError(false);
+    } else {
+      setIsError(true);
+    }
+  };
 
   return (
     <>
