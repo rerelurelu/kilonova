@@ -1,26 +1,37 @@
-$font-color-link: #F6E05E;
-$font-color-code: #FC8181;
+$font-color-link: #b79fcb;
+$font-color-code: #e3e548;
 $bg-color-code-area: rgb(40, 42, 54);
+$fs-code: 1rem;
 
 .markdown {
   margin-top: 2em;
   width: 100%;
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin-top: 2em;
   }
-  h1, h2{
-    margin-bottom: .3125em;
+  h1,
+  h2 {
+    margin-bottom: 0.3125em;
   }
   h1 {
     font-size: 2em;
+    border-bottom: 0.0625rem solid #006888;
   }
   h2 {
     font-size: 1.75em;
   }
-  h3, h4, h5, h6{
+  h3,
+  h4,
+  h5,
+  h6 {
     font-size: 1.5em;
   }
-  a{
+  a {
     color: $font-color-link;
     text-decoration: underline;
   }
@@ -36,21 +47,24 @@ $bg-color-code-area: rgb(40, 42, 54);
   p {
     margin-top: 2em;
     code {
-      padding: 0.125em;
+      font-size: $fs-code;
+      margin: 0 0.25em;
+      padding: 0.25em;
       color: $font-color-code;
       background-color: $bg-color-code-area;
       border-radius: 3px;
     }
   }
   pre {
+    padding: 1.25em;
     max-width: 95%;
     overflow-y: hidden;
     background-color: $bg-color-code-area;
     box-shadow: rgba(0, 0, 0, 0.55) 0px 6px 10px;
     margin: 3em auto;
-    border-radius: 5px;
+    border-radius: 10px;
     code {
-      padding: 0.625em;
+      font-size: $fs-code;
       line-height: 1.8em;
       color: $font-color-code;
       background-color: inherit;
