@@ -14,14 +14,14 @@ const Header: NextPage = () => {
       top={'0'}
       left={'0'}
       w={'full'}
+      pos={'sticky'}
       zIndex={'100'}
       bg={'white.0'}
       backdropFilter={'auto'}
       backdropBlur={'12px'}
-      boxShadow={'outline'}
-      pos={'sticky'}
       borderBottom={'1px'}
-      borderBottomColor={'cyan.200'}
+      borderStyle={'solid'}
+      borderBottomColor={'cyan.300'}
     >
       <Flex
         justify={'space-between'}
