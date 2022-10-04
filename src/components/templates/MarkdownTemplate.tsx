@@ -5,7 +5,7 @@ import style from '../../style/markdownTemplate.module.scss';
 export const MarkdownTemplate: NextPage<any> = ({ content }) => {
   return (
     <>
-      <ReactMarkdown className={style.markdown}>{content}</ReactMarkdown>;
+      <ReactMarkdown className={style.markdown}>{content}</ReactMarkdown>
     </>
   );
 };
