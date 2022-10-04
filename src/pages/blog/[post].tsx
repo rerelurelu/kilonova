@@ -38,20 +38,27 @@ const Blog: NextPage<any> = ({ post }) => {
             mx={'auto'}
             w={'80%'}
             maxW={'800px'}
+            color={'cyan.500'}
           >
-            <Heading color={'cyan.500'} w={'100%'} textAlign={'center'}>
+            <Heading color={'cyan.600'} w={'100%'} textAlign={'center'}>
               {post.title}
             </Heading>
-            <Box mt={'3.125rem'}>
-              <Text textAlign={'center'} fontSize={'sm'}>
+            <Box
+              width={'100%'}
+              mt={'3.125rem'}
+              pb={'5rem'}
+              borderBottom={'0.0625rem'}
+              borderStyle={'solid'}
+              borderColor={'cyan.600'}
+            >
+              <Text textAlign={'center'} fontSize={'sm'} color={'cyan.400'}>
                 Published
               </Text>
-              <Text mt={'0.3125rem'} color={'cyan.500'}>
+              <Text textAlign={'center'} mt={'0.3125rem'} color={'cyan.600'}>
                 {dateDisplay}
               </Text>
             </Box>
-              <Divider mt={'1.875rem'} />
-              <MarkdownTemplate content={post.content} />
+            <MarkdownTemplate content={post.content} />
           </Flex>
         </>
       )}

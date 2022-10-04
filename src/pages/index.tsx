@@ -21,7 +21,7 @@ const Home: NextPage<PostsProps> = ({ zennPosts, blogPosts }) => {
         fontSize={'3xl'}
         fontWeight={'semibold'}
         textAlign={'center'}
-        color={'yellow.300'}
+        color={'yellow.400'}
         cursor={'default'}
       >
         My Posts
