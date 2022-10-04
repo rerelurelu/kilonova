@@ -7,8 +7,12 @@ const theme = extendTheme({
   },
   colors: {
     white: {
-      0: '#f4fbfecc',
-      50: '#f4fbfe',
+      0: '#F5F7FB33',
+      50: '#F5F7FB',
+      100: '#FAFAFB',
+    },
+    skyBlue: {
+      50: '#87CEFAcc',
     },
   },
   styles: {
