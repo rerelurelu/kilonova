@@ -22,7 +22,7 @@ const About: NextPage = () => {
           src={'avatar.png'}
           boxSize={'192px'}
           border={'4px'}
-          borderColor={'yellow.300'}
+          borderColor={'yellow.200'}
           borderRadius={'full'}
           alt={`zoniha's avatar`}
         />

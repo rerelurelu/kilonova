@@ -19,7 +19,7 @@ const theme = extendTheme({
     global: {
       body: {
         backgroundColor: 'white.50',
-        color: 'cyan.200',
+        color: 'cyan.500',
         letterSpacing: '0.0625rem',
       },
     },
