@@ -9,21 +9,24 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
   return (
     <NextLink href={href}>
       <Box
-        bg={'gray.800'}
+        bg={'white.100'}
         w={{ base: '100%', md: '80%' }}
-        maxW={'1000px'}
-        h={'150px'}
+        maxW={'15.625rem'}
+        h={'13rem'}
+        border={'0.125rem'}
+        borderStyle={'solid'}
+        borderColor={'skyBlue.50'}
         borderRadius={'0.9375rem'}
         pos={'relative'}
         cursor={'pointer'}
-        boxShadow={'lg'}
+        boxShadow={'0 0 7px #70C6F566'}
         transition={'transform .4s'}
         transitionTimingFunction={'cubic-bezier(0.4, 0, 0.2, 1)'}
         _hover={{ transform: 'scale(1.02)' }}
       >
         <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>
           <Box maxH={'80%'}>
-            <Text fontSize={'lg'} fontWeight={'semibold'} noOfLines={3}>
+            <Text fontSize={'lg'} fontWeight={'bold'} noOfLines={3} color={'cyan.600'}>
               {title}
             </Text>
           </Box>
