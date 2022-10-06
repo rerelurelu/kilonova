@@ -17,6 +17,10 @@ class MyDocument extends Document {
           />
           <meta property="og:description" content="zonihaの個人サイトです。" />
           <meta property="og:site_name" content="zoniha's blog" />
+          <meta
+            name="google-site-verification"
+            content="N9-TGNbMrDQANhUEh8dd-DHYHZFgvOoTYdYBVataS00"
+          />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
