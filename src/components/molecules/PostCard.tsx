@@ -26,7 +26,7 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
       >
         <VStack spacing={'0.625rem'} alignItems={'normal'} padding={'1.25rem'}>
           <Box maxH={'80%'}>
-            <Text fontSize={'lg'} fontWeight={'bold'} noOfLines={3} color={'cyan.600'}>
+            <Text fontSize={'lg'} fontWeight={'bold'} noOfLines={3} color={'fc.title'}>
               {title}
             </Text>
           </Box>

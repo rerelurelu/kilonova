@@ -38,23 +38,24 @@ const Blog: NextPage<any> = ({ post }) => {
             mx={'auto'}
             w={'80%'}
             maxW={'800px'}
-            color={'cyan.500'}
+            color={'fc.main'}
           >
-            <Heading color={'cyan.600'} w={'100%'} textAlign={'center'}>
+            <Heading color={'fc.title'} w={'100%'} textAlign={'center'}>
               {post.title}
             </Heading>
             <Box
               width={'100%'}
               mt={'3.125rem'}
               pb={'5rem'}
+              color={'cyan.600'}
               borderBottom={'0.0625rem'}
               borderStyle={'solid'}
               borderColor={'cyan.600'}
             >
-              <Text textAlign={'center'} fontSize={'sm'} color={'cyan.400'}>
+              <Text textAlign={'center'} fontSize={'sm'}>
                 Published
               </Text>
-              <Text textAlign={'center'} mt={'0.3125rem'} color={'cyan.600'}>
+              <Text textAlign={'center'} mt={'0.3125rem'}>
                 {dateDisplay}
               </Text>
             </Box>
