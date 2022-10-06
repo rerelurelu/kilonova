@@ -6,8 +6,12 @@ $fs-inline-code: 0.8rem;
 $fs-code-block: 1rem;
 
 .markdown {
-  margin-top: 2em;
+  margin-top: 5em;
   width: 100%;
+
+  @media (width > 30em) {
+    margin-top: 10rem;
+  }
 
   h1,
   h2,
