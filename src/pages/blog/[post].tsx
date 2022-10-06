@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -15,6 +15,7 @@ import { convertDateDisplay } from '../../utils/convertDateDisplay';
 const Blog: NextPage<any> = ({ post }) => {
   const fcTitle = useColorModeValue('fc.title', 'fcDark.title');
   const fcMain = useColorModeValue('fc.main', 'fcDark.main');
+  const borderColor = useColorModeValue('cyan.600', 'cyan.200');
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
   const dateDisplay = convertDateDisplay(post.createdAt.slice(0, 10));
   const haveAuth = useRecoilValue(haveAuthState);
@@ -52,7 +53,7 @@ const Blog: NextPage<any> = ({ post }) => {
               color={'cyan.600'}
               borderBottom={'0.0625rem'}
               borderStyle={'solid'}
-              borderColor={'cyan.600'}
+              borderColor={borderColor}
             >
               <Text textAlign={'center'} fontSize={'sm'}>
                 Published
