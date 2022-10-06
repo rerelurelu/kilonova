@@ -1,4 +1,15 @@
-import { Box, Flex, Image, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  IconButton,
+  Image,
+  ListItem,
+  Text,
+  UnorderedList,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
@@ -8,6 +19,10 @@ const entries = [
 ] as const;
 
 const Header: NextPage = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bg = useColorModeValue('white.0', 'black.0');
+  const navColor = useColorModeValue('cyan.400', 'cyan.500');
+
   return (
     <Box
       as={'header'}
@@ -16,7 +31,7 @@ const Header: NextPage = () => {
       w={'full'}
       pos={'sticky'}
       zIndex={'100'}
-      bg={'white.0'}
+      bg={bg}
       backdropFilter={'auto'}
       backdropBlur={'12px'}
       borderBottom={'1px'}
@@ -28,7 +43,7 @@ const Header: NextPage = () => {
         alignItems={'center'}
         px={'1.5rem'}
         h={'64px'}
-        color={'cyan.400'}
+        color={navColor}
       >
         <Link href="/">
           <Image
@@ -46,6 +61,7 @@ const Header: NextPage = () => {
             fontWeight={'semibold'}
             fontSize={'lg'}
             listStyleType={'none'}
+            alignItems={'center'}
           >
             {entries.map(({ href, content }) => {
               return (
@@ -62,6 +78,16 @@ const Header: NextPage = () => {
                 </ListItem>
               );
             })}
+            <ListItem>
+              <IconButton
+                aria-label={colorMode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+                fontSize={'xl'}
+                bgColor={'transparent'}
+                _hover={{ bgColor: 'transparent' }}
+                icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                onClick={toggleColorMode}
+              />
+            </ListItem>
           </UnorderedList>
         </Box>
       </Flex>

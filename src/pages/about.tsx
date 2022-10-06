@@ -1,4 +1,14 @@
-import { Box, Grid, Image, Text, UnorderedList, ListItem, Link, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Grid,
+  Image,
+  Text,
+  UnorderedList,
+  ListItem,
+  Link,
+  Flex,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
 
@@ -15,8 +25,11 @@ const description = {
 } as const;
 
 const About: NextPage = () => {
+  const fcMain = useColorModeValue('fc.main', 'fcDark.main');
+  const fcTitle = useColorModeValue('fc.title', 'fcDark.title');
+
   return (
-    <Box mx={'auto'} px={'1.5rem'} mt={'5rem'}>
+    <Box mx={'auto'} px={'1.5rem'} mt={'5rem'} color={fcMain}>
       <Grid w={'full'} justifyItems={'center'} alignItems={'center'} gap={'24px'}>
         <Image
           src={'avatar.png'}
@@ -26,8 +39,10 @@ const About: NextPage = () => {
           borderRadius={'full'}
           alt={`zoniha's avatar`}
         />
-        <Text fontSize={'3xl'}>zoniha</Text>
-        <UnorderedList display={'flex'} flexWrap={'wrap'} listStyleType={'none'}>
+        <Text fontSize={'3xl'} color={fcTitle}>
+          zoniha
+        </Text>
+        <UnorderedList display={'flex'} flexWrap={'wrap'} listStyleType={'none'} color={fcTitle}>
           {links.map(({ href, content }) => {
             return (
               <ListItem key={content} ml={'0.25rem'}>

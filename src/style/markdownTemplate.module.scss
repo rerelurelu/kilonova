@@ -1,6 +1,7 @@
 $font-color-link: #faaf08;
 $font-color-code: #e3e548;
 $bg-color-code-area: #1d345d;
+$border-color: #b2ebf2b3;
 $fs-inline-code: 0.8rem;
 $fs-code-block: 1rem;
 
@@ -24,7 +25,7 @@ $fs-code-block: 1rem;
 
   h1 {
     font-size: 2em;
-    border-bottom: 0.0625rem solid #00688833;
+    border-bottom: 0.0625rem solid $border-color;
   }
 
   h2 {
@@ -73,7 +74,6 @@ $fs-code-block: 1rem;
     max-width: 95%;
     overflow-y: hidden;
     background-color: $bg-color-code-area;
-    box-shadow: rgba(0, 0, 0, 0.55) 0px 6px 10px;
     margin: 3em auto;
     border-radius: 10px;
 
