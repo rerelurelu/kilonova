@@ -22,6 +22,7 @@ const Header: NextPage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue('white.0', 'black.0');
   const navColor = useColorModeValue('cyan.400', 'cyan.500');
+  const ariaLabel = useColorModeValue('Switch to Dark Mode', 'Switch to Light Mode');
 
   return (
     <Box
@@ -80,7 +81,7 @@ const Header: NextPage = () => {
             })}
             <ListItem>
               <IconButton
-                aria-label={colorMode === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+                aria-label={ariaLabel}
                 fontSize={'xl'}
                 bgColor={'transparent'}
                 _hover={{ bgColor: 'transparent' }}

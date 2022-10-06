@@ -1,4 +1,12 @@
-import { TabList, Tabs, Tab, TabPanels, TabPanel, Heading, useColorMode } from '@chakra-ui/react';
+import {
+  TabList,
+  Tabs,
+  Tab,
+  TabPanels,
+  TabPanel,
+  Heading,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
 import BlogField from '../components/organisms/BlogField';
@@ -12,7 +20,7 @@ const TITLE = 'Blog';
 const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;
 
 const Home: NextPage<PostsProps> = ({ zennPosts, blogPosts }) => {
-  const { colorMode } = useColorMode();
+  const tabColor = useColorModeValue('cyan.300', 'cyan.600');
 
   return (
     <>
@@ -32,7 +40,7 @@ const Home: NextPage<PostsProps> = ({ zennPosts, blogPosts }) => {
         mx={{ base: '5%', md: '15%' }}
         mt={'5rem'}
         pb={{ base: '4rem', md: '12.5rem' }}
-        color={colorMode === 'light' ? 'cyan.300' : 'cyan.600'}
+        color={tabColor}
         colorScheme={'cyan'}
       >
         <TabList>
