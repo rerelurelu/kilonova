@@ -14,6 +14,10 @@ const theme = extendTheme({
     skyBlue: {
       50: '#87CEFAcc',
     },
+    fc: {
+      title: '#7da3a1',
+      main: '#66a5ad'
+    },
   },
   styles: {
     global: {
