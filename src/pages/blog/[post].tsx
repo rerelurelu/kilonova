@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
