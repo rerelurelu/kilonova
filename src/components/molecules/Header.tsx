@@ -16,6 +16,7 @@ import Link from 'next/link';
 const entries = [
   { href: '/', content: 'blog' },
   { href: '/about', content: 'about' },
+  { href: '/contact', content: 'contact' },
 ] as const;
 
 const Header: NextPage = () => {
