@@ -1,8 +1,9 @@
 import { Box, Text, useColorMode, useColorModeValue, VStack } from '@chakra-ui/react';
 import { NextPage } from 'next';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import { PostCardProps } from '../../types/props';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
+import style from '../../style/postCard.module.scss';
 
 const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
   const { colorMode } = useColorMode();
@@ -12,11 +13,9 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
   const dateDisplay = convertDateDisplay(createdAt.slice(0, 10));
 
   return (
-    <NextLink href={href}>
+    <Link href={href} className={style.link}>
       <Box
         bg={bg}
-        w={{ base: '100%', md: '80%' }}
-        maxW={'15.625rem'}
         h={'13rem'}
         border={'0.125rem'}
         borderStyle={'solid'}
@@ -46,7 +45,7 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
           </Text>
         </VStack>
       </Box>
-    </NextLink>
+    </Link>
   );
 };
 
