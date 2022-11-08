@@ -22,7 +22,7 @@ class MyDocument extends Document {
             content="N9-TGNbMrDQANhUEh8dd-DHYHZFgvOoTYdYBVataS00"
           />
         </Head>
-        <body>
+        <body className="font-body">
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />

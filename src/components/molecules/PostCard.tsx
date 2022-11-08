@@ -3,7 +3,7 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { PostCardProps } from '../../types/props';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
-import style from '../../style/postCard.module.scss';
+// import style from '../../style/postCard.module.scss';
 
 const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
   const { colorMode } = useColorMode();
@@ -13,7 +13,7 @@ const PostCard: NextPage<PostCardProps> = ({ title, href, createdAt }) => {
   const dateDisplay = convertDateDisplay(createdAt.slice(0, 10));
 
   return (
-    <Link href={href} className={style.link}>
+    <Link href={href}>
       <Box
         bg={bg}
         h={'13rem'}

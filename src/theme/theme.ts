@@ -5,10 +5,6 @@ const theme = extendTheme({
     initialColorMode: 'light',
     useSystemColorMode: false,
   },
-  fonts: {
-    heading: `Overpass, "Noto Sans JP"`,
-    body: `Overpass, "Noto Sans JP"`,
-  },
   colors: {
     white: {
       0: '#f5f7fb33',
