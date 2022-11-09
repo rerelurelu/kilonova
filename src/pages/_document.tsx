@@ -20,7 +20,7 @@ class MyDocument extends Document {
             content="N9-TGNbMrDQANhUEh8dd-DHYHZFgvOoTYdYBVataS00"
           />
         </Head>
-        <body className="font-body">
+        <body>
           <Main />
           <NextScript />
         </body>
