@@ -9,8 +9,20 @@ const entries = [
 
 const Header: NextPage = () => {
   return (
-    <div>
-      <p>HEADER</p>
+    <div className="navbar font-semibold bg-base-100/30 backdrop-blur flex flex-row-reverse border-b border-indigo-500 fixed z-50">
+      <ul className="menu menu-horizontal p-0">
+        {entries.map(({ href, content }) => {
+          return (
+            <li key={content}>
+              <Link href={href} className="hover:bg-transparent">
+                <span className="text-lg uppercase antialiased hover:opacity-70">
+                  {content}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
