@@ -7,18 +7,13 @@ import { PostsProps } from '../types/props';
 import client from '../graphql/config/ApolloClientConfig';
 import { GET_POSTS_QUERY } from '../graphql/queries/GetPostsQuery';
 import Footer from '../components/molecules/Footer';
+import Header from '../components/molecules/Header';
 
 const TITLE = 'Blog';
 const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;
 
 const Home: NextPage<PostsProps> = ({ zennPosts, blogPosts }) => {
-  return (
-    <>
-      <MyHead title={TITLE} />
-      <h1 className=''>Home</h1>
-      <Footer />
-    </>
-  );
+  return <></>;
 };
 
 export default Home;

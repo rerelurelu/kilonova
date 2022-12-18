@@ -24,7 +24,11 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
         }
       `}</style>
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <Header />
+        <div className="min-h-screen">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </ApolloProvider>
     </RecoilRoot>
   );
