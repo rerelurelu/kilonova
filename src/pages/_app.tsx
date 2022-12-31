@@ -9,10 +9,10 @@ import '../styles/global.css';
 import { Overpass, Noto_Sans_JP } from '@next/font/google';
 
 const overpass = Overpass({
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
 });
 const notoSansJP = Noto_Sans_JP({
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
 });
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
@@ -20,7 +20,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
     <RecoilRoot>
       <style jsx global>{`
         html {
-          font-family: ${overpass.style.fontFamily}, ${notoSansJP.style.fontFamily};
+          font-family: ${(overpass.style.fontFamily, notoSansJP.style.fontFamily)};
         }
       `}</style>
       <ApolloProvider client={client}>
