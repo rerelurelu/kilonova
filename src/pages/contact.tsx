@@ -1,38 +1,29 @@
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormErrorMessage,
-  Heading,
-  Input,
-  Textarea,
-  useColorModeValue,
-  useToast,
-  VStack,
-} from '@chakra-ui/react';
 import axios from 'axios';
 import { NextPage } from 'next';
-import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
 import { FormInputs } from '../types/formInputs';
+import { Toaster, toast } from 'react-hot-toast';
 
 const errorMessages = {
   nameError: 'Name is required.',
   emailError: 'Email is required.',
-  subjectError: 'Subject is required.',
   messageError: 'Message is required.',
 };
 
+const sendMessage = {
+  success: 'Your message was sent successfully🥳',
+  error: 'Failed to send message🥲',
+};
+
+const textInputContents = [
+  { label: 'Name*', placeholder: 'Your Name' },
+  { label: 'Email*', placeholder: 'Your Email' },
+];
+
+const textAreaContent = { label: 'Message*', placeholder: 'Message' };
+
 const Contact: NextPage = () => {
-  const fcTitle = useColorModeValue('fc.title', 'fcDark.title');
-  const fcMain = useColorModeValue('fc.main', 'fcDark.main');
-  const borderColor = useColorModeValue('cyan.500', 'skyBlue.50');
-
-  const toast = useToast();
-
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-
   const {
     register,
     handleSubmit,
@@ -41,7 +32,6 @@ const Contact: NextPage = () => {
   } = useForm<FormInputs>();
 
   const handleSendMessage: SubmitHandler<FormInputs> = (data: FormInputs) => {
-    setIsSubmitting(true);
     const formData = new FormData();
 
     for (let field in data) {
@@ -55,104 +45,95 @@ const Contact: NextPage = () => {
       data: formData,
     })
       .then(() => {
-        toast({
-          title: 'Your message was sent successfully🥳',
-          status: 'success',
-          duration: 5000,
-          isClosable: true,
-        });
         reset();
-        setIsSubmitting(false);
+        toast.success(sendMessage.success, {
+          style: {
+            border: '1px solid #4DD0E1',
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
       })
       .catch(() => {
-        toast({
-          title: 'An error has occurred.',
-          description: 'Failed to send message🥲',
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
+        toast.error(sendMessage.error, {
+          style: {
+            border: '1px solid #4DD0E1',
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
         });
-        setIsSubmitting(false);
       });
   };
 
   return (
     <>
-      <Heading textAlign={'center'} mt={16} textColor={fcTitle}>
-        Contact
-      </Heading>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 5000,
+        }}
+      />
+      <h1 className="pt-36 text-center text-5xl">Contact</h1>
       <form onSubmit={handleSubmit(handleSendMessage)}>
-        <Flex justify={'center'} textAlign={'center'}>
-          <Box
-            w={'3xl'}
-            px={{ base: '4rem', sm: '3rem' }}
-            borderRadius={'md'}
-            mt={24}
-            textColor={'cyan.500'}
-          >
-            <VStack spacing={12}>
-              <FormControl isInvalid={!!errors.name}>
-                <Input
-                  type={'text'}
-                  placeholder={'Name*'}
-                  {...register('name', { required: true })}
-                  borderColor={borderColor}
-                  _hover={{ __hover: 'none' }}
-                  _placeholder={{ color: fcMain }}
-                />
-                <FormErrorMessage>{errorMessages.nameError}</FormErrorMessage>
-              </FormControl>
-              <FormControl isInvalid={!!errors.email}>
-                <Input
-                  type={'text'}
-                  placeholder={'Email*'}
-                  {...register('email', {
-                    required: true,
-                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  })}
-                  borderColor={borderColor}
-                  _hover={{ __hover: 'none' }}
-                  _placeholder={{ color: fcMain }}
-                />
-                <FormErrorMessage>{errorMessages.emailError}</FormErrorMessage>
-              </FormControl>
-              <FormControl isInvalid={!!errors.subject}>
-                <Input
-                  type={'text'}
-                  placeholder={'Subject*'}
-                  {...register('subject', { required: true })}
-                  borderColor={borderColor}
-                  _hover={{ __hover: 'none' }}
-                  _placeholder={{ color: fcMain }}
-                />
-                <FormErrorMessage>{errorMessages.subjectError}</FormErrorMessage>
-              </FormControl>
-              <FormControl isInvalid={!!errors.message}>
-                <Textarea
-                  placeholder={'Message*'}
-                  rows={8}
-                  {...register('message', { required: true })}
-                  borderColor={borderColor}
-                  _hover={{ __hover: 'none' }}
-                  _placeholder={{ color: fcMain }}
-                />
-                <FormErrorMessage>{errorMessages.messageError}</FormErrorMessage>
-              </FormControl>
-            </VStack>
-            <Button
-              type={'submit'}
-              title={'Send button'}
-              w={'50%'}
-              mt={16}
-              py={6}
-              bg={'teal.300'}
-              textColor={'white'}
-              disabled={isSubmitting}
-            >
-              SEND
-            </Button>
-          </Box>
-        </Flex>
+        <div className="grid place-items-center gap-10 w-full mt-16 pb-40">
+          <div className="form-control w-full max-w-xl">
+            <label className="label">
+              <span className="label-text text-lg">{textInputContents[0].label}</span>
+            </label>
+            <input
+              type="text"
+              placeholder={textInputContents[0].placeholder}
+              className="input input-bordered w-full max-w-xl input-secondary text-lg placeholder:text-slate-600 focus:border-violet-600"
+              {...register('name', { required: errorMessages.nameError })}
+            />
+            <ErrorMessage
+              errors={errors}
+              name="name"
+              as="p"
+              className="mt-3 text-red-400"
+            />
+          </div>
+          <div className="form-control w-full max-w-xl">
+            <label className="label">
+              <span className="label-text text-lg">{textInputContents[1].label}</span>
+            </label>
+            <input
+              type="email"
+              placeholder={textInputContents[1].placeholder}
+              className="input input-bordered w-full max-w-xl input-secondary text-lg placeholder:text-slate-600 focus:border-violet-600"
+              {...register('email', { required: errorMessages.emailError })}
+            />
+            <ErrorMessage
+              errors={errors}
+              name="email"
+              as="p"
+              className="mt-3 text-red-400"
+            />
+          </div>
+          <div className="form-control w-full max-w-xl">
+            <label className="label">
+              <span className="label-text text-lg">{textAreaContent.label}</span>
+            </label>
+            <textarea
+              className="textarea textarea-bordered max-w-xl textarea-secondary text-lg placeholder:text-slate-600 focus:border-violet-600"
+              placeholder={textAreaContent.placeholder}
+              rows={10}
+              {...register('message', { required: errorMessages.messageError })}
+            />
+            <ErrorMessage
+              errors={errors}
+              name="message"
+              as="p"
+              className="mt-3 text-red-400"
+            />
+          </div>
+          <button type="submit" className="w-full mt-10 btn btn-primary max-w-sm text-lg font-medium">
+            SEND
+          </button>
+        </div>
       </form>
     </>
   );

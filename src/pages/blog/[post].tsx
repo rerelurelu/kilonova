@@ -1,4 +1,3 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
@@ -13,9 +12,6 @@ import { BlogPost } from '../../types/props';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
 
 const Blog: NextPage<any> = ({ post }) => {
-  const fcTitle = useColorModeValue('fc.title', 'fcDark.title');
-  const fcMain = useColorModeValue('fc.main', 'fcDark.main');
-  const borderColor = useColorModeValue('cyan.600', 'cyan.200');
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
   const dateDisplay = convertDateDisplay(post.createdAt.slice(0, 10));
   const haveAuth = useRecoilValue(haveAuthState);
@@ -29,42 +25,18 @@ const Blog: NextPage<any> = ({ post }) => {
       {isSecret ? (
         <AuthField setIsSecret={setIsSecret} />
       ) : (
-        <>
-          <MyHead title={post.title} />
-          <Flex
-            as="article"
-            mt={'6.25rem'}
-            pb={{ base: '4rem', md: '12.5rem' }}
-            flexDir={'column'}
-            justifyContent={'center'}
-            alignItems={'center'}
-            mx={'auto'}
-            w={'80%'}
-            maxW={'800px'}
-            color={fcMain}
-          >
-            <Heading color={fcTitle} w={'100%'} textAlign={'center'}>
-              {post.title}
-            </Heading>
-            <Box
-              width={'100%'}
-              mt={'3.125rem'}
-              pb={'5rem'}
-              color={'cyan.600'}
-              borderBottom={'0.0625rem'}
-              borderStyle={'solid'}
-              borderColor={borderColor}
-            >
-              <Text textAlign={'center'} fontSize={'sm'}>
-                Published
-              </Text>
-              <Text textAlign={'center'} mt={'0.3125rem'}>
-                {dateDisplay}
-              </Text>
-            </Box>
-            <MarkdownTemplate content={post.content} />
-          </Flex>
-        </>
+        <div className="pt-20 px-12 pb-60">
+          <article className="flex justify-center items-center flex-col mt-40 max-w-3xl mx-auto">
+            <header className="grid justify-items-center gap-12">
+              <h1 className="text-4xl font-bold">{post.title}</h1>
+              <time dateTime={post.createdAt}>{dateDisplay}</time>
+            </header>
+            <span className="divider mt-20 mb-0"></span>
+            <div className="w-full mt-20 text-lg tracking-wide">
+              <MarkdownTemplate content={post.content} />
+            </div>
+          </article>
+        </div>
       )}
     </>
   );

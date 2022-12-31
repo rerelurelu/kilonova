@@ -1,26 +1,26 @@
 import { NextPage } from 'next';
-import { BlogFieldProps, BlogPost } from '../../types/props';
 import PostCard from '../molecules/PostCard';
-import PostsFieldLayout from '../templates/PostsFieldLayout';
+import { Post, Posts } from '../../types/post';
 
-const BlogField: NextPage<BlogFieldProps> = ({ blogPosts }) => {
+type Props = {
+  posts: Posts;
+};
+
+const BlogField: NextPage<Props> = ({ posts }) => {
   return (
-    <>
-      <PostsFieldLayout>
-        <>
-          {blogPosts.map((post: BlogPost) => {
-            return (
-              <PostCard
-                key={post.id}
-                title={post.title}
-                href={`/blog/${post.slug}`}
-                createdAt={post.createdAt.slice(0, 10)}
-              />
-            );
-          })}
-        </>
-      </PostsFieldLayout>
-    </>
+    <section className="base:mt-24 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  grid md:mt-36 gap-8 w-full max-w-screen-lg mx-auto">
+      {posts.map((post: Post) => {
+        return (
+          <PostCard
+            key={post.key}
+            title={post.title}
+            href={post.link}
+            createdAt={post.createdAt}
+            tags={post.tags}
+          />
+        );
+      })}
+    </section>
   );
 };
 

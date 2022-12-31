@@ -1,8 +1,6 @@
 import { NextPage } from 'next';
-import { Button, Grid, Input, Spacer, Text } from '@chakra-ui/react';
 import { ChangeEvent, useState } from 'react';
-import NextLink from 'next/link';
-import MyHead from '../molecules/MyHead';
+import Link from 'next/link';
 import { AuthFieldProps } from '../../types/props';
 import { useRecoilState } from 'recoil';
 import { haveAuthState } from '../../states/atoms/haveAuth';
@@ -12,7 +10,7 @@ const AuthField: NextPage<AuthFieldProps> = ({ setIsSecret }) => {
   const [password, setPassword] = useState<string>('');
   const [_, setHaveAuth] = useRecoilState(haveAuthState);
 
-  const handleEnter = (password: string) => {
+  const handleSubmit = (password: string) => {
     if (password === process.env.NEXT_PUBLIC_POST_PASSWORD) {
       setIsSecret(false);
       setIsError(false);
@@ -23,54 +21,33 @@ const AuthField: NextPage<AuthFieldProps> = ({ setIsSecret }) => {
   };
 
   return (
-    <>
-      <MyHead title={'SECURITY ROOM'} />
-      <Grid mt={'13rem'} justifyItems={'center'} alignItems={'center'}>
+    <div className="pt-20 px-12 pb-60">
+      <div className="grid place-items-center mt-80">
         {isError ? (
-          <Text color={'red.500'} mb={'5rem'} fontSize={'2xl'} fontWeight={'bold'}>
+          <p className="text-red-500 font-semibold text-2xl">
             👻 something went wrong 👻
-          </Text>
-        ) : (
-          <Spacer mb={'5.25rem'} />
-        )}
-        <Input
+          </p>
+        ) : null}
+        <input
+          type="password"
+          placeholder="Password"
+          className={`input input-bordered w-full max-w-md rounded-full focus:border-violet-600 ${
+            isError ? 'border-red-600 mt-4' : 'border-violet-300 mt-8'
+          }`}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-          variant="flushed"
-          fontSize={'1.5rem'}
-          color={'cyan.500'}
-          type={'password'}
-          w={'50%'}
-          maxW={'25rem'}
-          textAlign={'center'}
-          autoFocus={true}
-          borderColor={'cyan.400'}
-          _focus={{ borderColor: 'cyan.400', shadow: 'none' }}
         />
-        <Button
-          bg={'cyan.400'}
-          mt={{ base: '3rem', sm: '7rem' }}
-          w={'20%'}
-          maxW={'150px'}
-          color={'yellow.200'}
-          fontWeight={'bold'}
-          _hover={{ opacity: '0.75' }}
-          onClick={() => handleEnter(password)}
+        <button
+          type="submit"
+          className="btn font-medium w-40 mt-20"
+          onClick={() => handleSubmit(password)}
         >
           ENTER
-        </Button>
-        <Spacer mb={'3rem'} />
-        <NextLink href={'/'} color={'yellow.200'}>
-          <Text
-            as={'span'}
-            color={'cyan.300'}
-            decoration={'underline'}
-            _hover={{ cursor: 'pointer', color: 'cyan.500' }}
-          >
-            Back Home
-          </Text>
-        </NextLink>
-      </Grid>
-    </>
+        </button>
+        <Link href={'/'} className="link mt-40">
+          Back Home
+        </Link>
+      </div>
+    </div>
   );
 };
 
