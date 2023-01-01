@@ -1,15 +1,14 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import MyHead from '../../components/molecules/MyHead';
 import AuthField from '../../components/organisms/AuthField';
 import { MarkdownTemplate } from '../../components/templates/MarkdownTemplate';
 import client from '../../graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from '../../graphql/queries/GetPostQuery';
 import { GET_POSTS_QUERY } from '../../graphql/queries/GetPostsQuery';
 import { haveAuthState } from '../../states/atoms/haveAuth';
-import { BlogPost } from '../../types/props';
 import { convertDateDisplay } from '../../utils/convertDateDisplay';
+import { BlogPost } from '../../types/post';
 
 const Blog: NextPage<any> = ({ post }) => {
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
