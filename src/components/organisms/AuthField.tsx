@@ -24,24 +24,24 @@ const AuthField: NextPage<Props> = ({ setIsSecret }) => {
   };
 
   return (
-    <div className="pt-20 px-12 pb-60">
-      <div className="grid place-items-center mt-80">
+    <div className="px-12 pt-20 pb-60">
+      <div className="mt-80 grid place-items-center">
         {isError ? (
-          <p className="text-red-500 font-semibold text-2xl">
+          <p className="text-2xl font-semibold text-red-500">
             👻 something went wrong 👻
           </p>
         ) : null}
         <input
           type="password"
           placeholder="Password"
-          className={`input input-bordered w-full max-w-md rounded-full focus:border-violet-600 ${
-            isError ? 'border-red-600 mt-4' : 'border-violet-300 mt-8'
+          className={`input-bordered input w-full max-w-md rounded-full focus:border-violet-600 ${
+            isError ? 'mt-4 border-red-600' : 'mt-8 border-violet-300'
           }`}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         />
         <button
           type="submit"
-          className="btn font-medium w-40 mt-20"
+          className="btn mt-20 w-40 font-medium"
           onClick={() => handleSubmit(password)}
         >
           ENTER
