@@ -1,11 +1,14 @@
 import { NextPage } from 'next';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import Link from 'next/link';
-import { AuthFieldProps } from '../../types/props';
 import { useRecoilState } from 'recoil';
 import { haveAuthState } from '../../states/atoms/haveAuth';
 
-const AuthField: NextPage<AuthFieldProps> = ({ setIsSecret }) => {
+type Props = {
+  setIsSecret: Dispatch<SetStateAction<boolean>>;
+};
+
+const AuthField: NextPage<Props> = ({ setIsSecret }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
   const [_, setHaveAuth] = useRecoilState(haveAuthState);
