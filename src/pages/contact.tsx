@@ -2,7 +2,7 @@ import axios from 'axios';
 import { NextPage } from 'next';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
-import { FormInputs } from '../types/formInputs';
+import { FormInputs } from 'types/formInputs';
 import { Toaster, toast } from 'react-hot-toast';
 
 const errorMessages = {
