@@ -9,6 +9,7 @@ import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
 import { haveAuthState } from 'states/atoms/haveAuth';
 import { convertDateDisplay } from 'utils/convertDateDisplay';
 import { BlogPost } from 'types/post';
+import { RootLayout } from 'components/layout';
 
 const Blog: NextPage<any> = ({ post }) => {
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
@@ -20,7 +21,7 @@ const Blog: NextPage<any> = ({ post }) => {
   }
 
   return (
-    <>
+    <RootLayout title={post.title}>
       {isSecret ? (
         <AuthField setIsSecret={setIsSecret} />
       ) : (
@@ -37,7 +38,7 @@ const Blog: NextPage<any> = ({ post }) => {
           </article>
         </div>
       )}
-    </>
+    </RootLayout>
   );
 };
 

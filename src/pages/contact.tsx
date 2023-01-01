@@ -4,6 +4,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { FormInputs } from 'types/formInputs';
 import { Toaster, toast } from 'react-hot-toast';
+import { RootLayout } from 'components/layout';
+
+const TITLE = 'Contact';
 
 const errorMessages = {
   nameError: 'Name is required.',
@@ -68,7 +71,7 @@ const Contact: NextPage = () => {
   };
 
   return (
-    <>
+    <RootLayout title={TITLE}>
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -138,7 +141,7 @@ const Contact: NextPage = () => {
           </button>
         </div>
       </form>
-    </>
+    </RootLayout>
   );
 };
 

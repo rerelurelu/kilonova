@@ -3,6 +3,9 @@ import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { haveAuthState } from 'states/atoms/haveAuth';
+import { RootLayout } from 'components/layout';
+
+const TITLE = 'Auth';
 
 type Props = {
   setIsSecret: Dispatch<SetStateAction<boolean>>;
@@ -24,7 +27,7 @@ const AuthField: NextPage<Props> = ({ setIsSecret }) => {
   };
 
   return (
-    <div className="px-12 pt-20 pb-60">
+    <RootLayout title={TITLE}>
       <div className="mt-80 grid place-items-center">
         {isError ? (
           <p className="text-2xl font-semibold text-red-500">
@@ -50,7 +53,7 @@ const AuthField: NextPage<Props> = ({ setIsSecret }) => {
           Back Home
         </Link>
       </div>
-    </div>
+    </RootLayout>
   );
 };
 
