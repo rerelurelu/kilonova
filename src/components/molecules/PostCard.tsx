@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
-import { convertDateDisplay } from '../../utils/convertDateDisplay';
+import { convertDateDisplay } from 'utils/convertDateDisplay';
 
 type Props = {
   title: string;

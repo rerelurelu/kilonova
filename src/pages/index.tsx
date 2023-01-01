@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
-import BlogField from '../components/organisms/BlogField';
-import client from '../graphql/config/ApolloClientConfig';
-import { GET_POSTS_QUERY } from '../graphql/queries/GetPostsQuery';
-import { BlogPost, Posts, ZennPost } from '../types/post';
+import BlogField from 'components/organisms/BlogField';
+import client from 'graphql/config/ApolloClientConfig';
+import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
+import { BlogPost, Posts, ZennPost } from 'types/post';
 
 const TITLE = 'Blog';
 const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;

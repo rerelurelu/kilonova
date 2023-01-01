@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import PostCard from '../molecules/PostCard';
-import { Post, Posts } from '../../types/post';
+import { Post, Posts } from 'types/post';
 
 type Props = {
   posts: Posts;

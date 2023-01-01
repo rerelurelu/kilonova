@@ -1,5 +1,3 @@
-import { type } from 'os';
-
 export type Post = {
   key: string;
   link: string;

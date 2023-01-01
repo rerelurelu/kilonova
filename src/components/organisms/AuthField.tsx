@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
-import { haveAuthState } from '../../states/atoms/haveAuth';
+import { haveAuthState } from 'states/atoms/haveAuth';
 
 type Props = {
   setIsSecret: Dispatch<SetStateAction<boolean>>;
