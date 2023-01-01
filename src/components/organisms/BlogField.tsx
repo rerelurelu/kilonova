@@ -8,7 +8,7 @@ type Props = {
 
 const BlogField: NextPage<Props> = ({ posts }) => {
   return (
-    <section className="base:mt-24 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  grid md:mt-36 gap-8 w-full max-w-screen-lg mx-auto">
+    <section className="base:mt-24 mx-auto grid w-full  max-w-screen-lg gap-8 sm:grid-cols-1 md:mt-36 md:grid-cols-2 lg:grid-cols-3">
       {posts.map((post: Post) => {
         return (
           <PostCard

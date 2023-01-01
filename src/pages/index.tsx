@@ -4,6 +4,7 @@ import BlogField from 'components/organisms/BlogField';
 import client from 'graphql/config/ApolloClientConfig';
 import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
 import { BlogPost, Posts, ZennPost } from 'types/post';
+import { RootLayout } from 'components/layout';
 
 const TITLE = 'Blog';
 const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;
@@ -14,12 +15,12 @@ type Props = {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <main className="px-12 pt-20 pb-60">
+    <RootLayout title={TITLE}>
       <header className="m-header">
         <h1 className="text-center text-4xl font-normal tracking-widest">{TITLE}</h1>
       </header>
       <BlogField posts={posts} />
-    </main>
+    </RootLayout>
   );
 };
 

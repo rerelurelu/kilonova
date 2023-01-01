@@ -1,5 +1,8 @@
+import { RootLayout } from 'components/layout';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
+
+const TITLE = 'About';
 
 const links = [
   { href: 'https://github.com/zoniha', content: 'GitHub' },
@@ -15,7 +18,7 @@ const description = {
 
 const About: NextPage = () => {
   return (
-    <>
+    <RootLayout title={TITLE}>
       <div className="grid place-items-center px-6 pt-40">
         <div className="avatar">
           <div className="h-48 w-48 rounded-full ring ring-secondary ring-offset-2 ring-offset-base-100">
@@ -44,7 +47,7 @@ const About: NextPage = () => {
           <p className="mt-5">{description.para2}</p>
         </div>
       </div>
-    </>
+    </RootLayout>
   );
 };
 
