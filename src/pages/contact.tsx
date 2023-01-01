@@ -78,7 +78,7 @@ const Contact: NextPage = () => {
       />
       <h1 className="pt-36 text-center text-5xl">Contact</h1>
       <form onSubmit={handleSubmit(handleSendMessage)}>
-        <div className="grid place-items-center gap-10 w-full mt-16 pb-40">
+        <div className="mt-16 grid w-full place-items-center gap-10 pb-40">
           <div className="form-control w-full max-w-xl">
             <label className="label">
               <span className="label-text text-lg">{textInputContents[0].label}</span>
@@ -86,7 +86,7 @@ const Contact: NextPage = () => {
             <input
               type="text"
               placeholder={textInputContents[0].placeholder}
-              className="input input-bordered w-full max-w-xl input-secondary text-lg placeholder:text-slate-600 focus:border-violet-600"
+              className="input-bordered input-secondary input w-full max-w-xl text-lg placeholder:text-slate-600 focus:border-violet-600"
               {...register('name', { required: errorMessages.nameError })}
             />
             <ErrorMessage
@@ -103,7 +103,7 @@ const Contact: NextPage = () => {
             <input
               type="email"
               placeholder={textInputContents[1].placeholder}
-              className="input input-bordered w-full max-w-xl input-secondary text-lg placeholder:text-slate-600 focus:border-violet-600"
+              className="input-bordered input-secondary input w-full max-w-xl text-lg placeholder:text-slate-600 focus:border-violet-600"
               {...register('email', { required: errorMessages.emailError })}
             />
             <ErrorMessage
@@ -118,7 +118,7 @@ const Contact: NextPage = () => {
               <span className="label-text text-lg">{textAreaContent.label}</span>
             </label>
             <textarea
-              className="textarea textarea-bordered max-w-xl textarea-secondary text-lg placeholder:text-slate-600 focus:border-violet-600"
+              className="textarea-bordered textarea-secondary textarea max-w-xl text-lg placeholder:text-slate-600 focus:border-violet-600"
               placeholder={textAreaContent.placeholder}
               rows={10}
               {...register('message', { required: errorMessages.messageError })}
@@ -130,7 +130,10 @@ const Contact: NextPage = () => {
               className="mt-3 text-red-400"
             />
           </div>
-          <button type="submit" className="w-full mt-10 btn btn-primary max-w-sm text-lg font-medium">
+          <button
+            type="submit"
+            className="btn-primary btn mt-10 w-full max-w-sm text-lg font-medium"
+          >
             SEND
           </button>
         </div>

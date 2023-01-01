@@ -14,9 +14,9 @@ type Props = {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <main className="pt-20 px-12 pb-60">
+    <main className="px-12 pt-20 pb-60">
       <header className="m-header">
-        <h1 className="text-center text-4xl tracking-widest font-normal">{TITLE}</h1>
+        <h1 className="text-center text-4xl font-normal tracking-widest">{TITLE}</h1>
       </header>
       <BlogField posts={posts} />
     </main>
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
       link: post.link,
       title: post.title,
       createdAt: post.isoDate.slice(0, 10),
-      tags: ['zenn']
+      tags: ['zenn'],
     });
   });
 
@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
       link: `/blog/${post.slug}`,
       title: post.title,
       createdAt: post.createdAt.slice(0, 10),
-      tags: ['myself']
+      tags: ['myself'],
     });
   });
 

@@ -16,14 +16,14 @@ const description = {
 const About: NextPage = () => {
   return (
     <>
-      <div className="grid place-items-center pt-40 px-6">
+      <div className="grid place-items-center px-6 pt-40">
         <div className="avatar">
-          <div className="h-48 w-48 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+          <div className="h-48 w-48 rounded-full ring ring-secondary ring-offset-2 ring-offset-base-100">
             <img src="avatar.png" alt="zoniha's avatar image" />
           </div>
         </div>
-        <span className="text-4xl mt-10">zoniha</span>
-        <ul className="list-none flex gap-4 flex-wrap mt-6">
+        <span className="mt-10 text-4xl">zoniha</span>
+        <ul className="mt-6 flex list-none flex-wrap gap-4">
           {links.map(({ href, content }) => {
             return (
               <li key={content}>
@@ -39,7 +39,7 @@ const About: NextPage = () => {
             );
           })}
         </ul>
-        <div className="grid place-items-center w-full mt-20 leading-6 max-w-4xl">
+        <div className="mt-20 grid w-full max-w-4xl place-items-center leading-6">
           <p>{description.para1}</p>
           <p className="mt-5">{description.para2}</p>
         </div>

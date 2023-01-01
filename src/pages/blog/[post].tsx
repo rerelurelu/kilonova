@@ -24,14 +24,14 @@ const Blog: NextPage<any> = ({ post }) => {
       {isSecret ? (
         <AuthField setIsSecret={setIsSecret} />
       ) : (
-        <div className="pt-20 px-12 pb-60">
-          <article className="flex justify-center items-center flex-col mt-40 max-w-3xl mx-auto">
+        <div className="px-12 pt-20 pb-60">
+          <article className="mx-auto mt-40 flex max-w-3xl flex-col items-center justify-center">
             <header className="grid justify-items-center gap-12">
               <h1 className="text-4xl font-bold">{post.title}</h1>
               <time dateTime={post.createdAt}>{dateDisplay}</time>
             </header>
             <span className="divider mt-20 mb-0"></span>
-            <div className="w-full mt-20 text-lg tracking-wide">
+            <div className="mt-20 w-full text-lg tracking-wide">
               <MarkdownTemplate content={post.content} />
             </div>
           </article>
