@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+const GOOGLE_SITE_VERIFICATION = process.env.NEXT_GOOGLE_SITE_VERIFICATION;
+
 class MyDocument extends Document {
   render() {
     return (
@@ -15,10 +17,7 @@ class MyDocument extends Document {
           />
           <meta property="og:description" content="zonihaの個人サイトです。" />
           <meta property="og:site_name" content="zoniha's blog" />
-          <meta
-            name="google-site-verification"
-            content="N9-TGNbMrDQANhUEh8dd-DHYHZFgvOoTYdYBVataS00"
-          />
+          <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
         </Head>
         <body>
           <Main />
