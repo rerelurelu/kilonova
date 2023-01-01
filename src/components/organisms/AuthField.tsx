@@ -28,7 +28,7 @@ const AuthField: NextPage<Props> = ({ setIsSecret }) => {
 
   return (
     <RootLayout title={TITLE}>
-      <div className="mt-80 grid place-items-center">
+      <div className="mt-40 grid place-items-center">
         {isError ? (
           <p className="text-2xl font-semibold text-red-500">
             👻 something went wrong 👻
