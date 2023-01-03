@@ -20,8 +20,12 @@ module.exports = {
         card: '1.25rem 2.5rem 1.25rem 1.25rem',
       },
       margin: {
-        header: '8rem auto 0'
-      }
+        header: '8rem auto 0',
+      },
+      colors: {
+        gPink: '#FF00CC',
+        gViolet: '#333399',
+      },
     },
   },
   daisyui: {
@@ -32,7 +36,7 @@ module.exports = {
           secondary: '#999EEF',
           accent: '#ACB4FC',
           neutral: '#E0CCF6',
-          'base-100': '#0D1546',
+          'base-100': '#1A1E2E',
         },
       },
     ],
