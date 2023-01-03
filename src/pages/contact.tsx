@@ -79,7 +79,11 @@ const Contact: NextPage = () => {
           duration: 5000,
         }}
       />
-      <h1 className="pt-36 text-center text-4xl text-white">Contact</h1>
+      <header className="m-header md:m-header-md">
+        <h1 className="text-center text-4xl font-normal tracking-widest text-white">
+          {TITLE}
+        </h1>
+      </header>
       <form onSubmit={handleSubmit(handleSendMessage)}>
         <div className="mt-16 grid w-full place-items-center gap-10 pb-40">
           <div className="form-control w-full max-w-xl">

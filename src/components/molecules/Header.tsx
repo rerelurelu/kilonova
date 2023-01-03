@@ -17,7 +17,7 @@ const Header: NextPage = () => {
     setCurrentPage(e.currentTarget.id);
   };
   return (
-    <div className="navbar fixed z-50 flex h-20 flex-row-reverse bg-base-100/30 px-11 pt-4 backdrop-blur">
+    <div className="navbar fixed z-50 flex h-20 justify-center bg-base-100/30 px-11 pt-4 backdrop-blur md:justify-end">
       <ul className="menu menu-horizontal p-0">
         {ENTRIES.map(({ href, content }) => {
           return (

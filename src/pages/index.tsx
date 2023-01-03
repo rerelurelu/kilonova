@@ -16,8 +16,10 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }) => {
   return (
     <RootLayout title={TITLE}>
-      <header className="m-header">
-        <h1 className="text-center text-4xl font-normal tracking-widest text-white">{TITLE}</h1>
+      <header className="m-header md:m-header-md">
+        <h1 className="text-center text-4xl font-normal tracking-widest text-white">
+          {TITLE}
+        </h1>
       </header>
       <BlogField posts={posts} />
     </RootLayout>
