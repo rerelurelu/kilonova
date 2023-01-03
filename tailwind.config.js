@@ -20,7 +20,8 @@ module.exports = {
         card: '1.25rem 2.5rem 1.25rem 1.25rem',
       },
       margin: {
-        header: '8rem auto 0',
+        'header-md': '8rem auto 0',
+        'header': '5rem auto 0'
       },
       colors: {
         gBlue: '#647DEE',
