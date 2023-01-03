@@ -13,10 +13,10 @@ const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
   const dateDisplay = convertDateDisplay(createdAt.slice(0, 10));
 
   return (
-    <article className="card h-48 overflow-hidden bg-gradient-to-br from-gPink to-gViolet">
+    <article className="card h-48 overflow-hidden bg-gradient-to-br from-gBlue to-gPurple">
       <div className="card-body justify-between p-card text-white">
         <header className="mb-auto">
-          <h2 className="card-title break-words text-base">
+          <h2 className="card-title break-words text-base hover:text-fuchsia-300">
             <Link href={href}>{title}</Link>
           </h2>
         </header>

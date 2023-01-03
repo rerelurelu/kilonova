@@ -23,8 +23,8 @@ module.exports = {
         header: '8rem auto 0',
       },
       colors: {
-        gPink: '#FF00CC',
-        gViolet: '#333399',
+        gBlue: '#647DEE',
+        gPurple: '#7F53AC',
       },
     },
   },
