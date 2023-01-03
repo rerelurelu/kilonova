@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .nav-underline {
+    @apply absolute;
+    @apply -bottom-2;
+    @apply left-0;
+    @apply h-1;
+    background: linear-gradient(to right, #00F1F9, #CB33F4);
+    content: '';
+    transition: all .3s;
+  }
+}
