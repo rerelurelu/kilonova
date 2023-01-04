@@ -16,8 +16,10 @@ const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
     <article className="card h-48 overflow-hidden bg-gradient-to-br from-gBlue to-gPurple">
       <div className="card-body justify-between p-card text-white">
         <header className="mb-auto">
-          <h2 className="card-title break-words text-base hover:text-fuchsia-300">
-            <Link href={href}>{title}</Link>
+          <h2 className="card-title break-words text-lg">
+            <Link href={href} className="hover:text-fuchsia-300">
+              {title}
+            </Link>
           </h2>
         </header>
         <div className="flex flex-col justify-end">
