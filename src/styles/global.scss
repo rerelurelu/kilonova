@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$font-color-link: #cc2072;
+$font-color-code: #d4d9dc;
+$bg-color-code-area: #4567a2;
+$border-color: #b2ebf24d;
+
+@layer components {
+  .nav-underline {
+    @apply absolute;
+    @apply -bottom-2;
+    @apply left-0;
+    @apply h-1;
+    background: linear-gradient(to right, #00f1f9, #cb33f4);
+    content: '';
+    transition: all .3s;
+  }
+}
+
+@layer components {
+  .markdown {
+    @apply w-full;
+    font-weight: 300;
+
+    &h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mt-8;
+    }
+
+    h1,
+    h2 {
+      @apply mb-2;
+      font-weight: bold;
+    }
+
+    h1 {
+      @apply text-3xl;
+      border-bottom: 0.0625rem solid $border-color;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-xl;
+      font-weight: 400;
+    }
+
+    a {
+      color: $font-color-link;
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 90%;
+      @apply mx-auto;
+      @apply my-16;
+      @apply rounded-lg
+    }
+
+    ul {
+      @apply ml-7;
+      @apply list-disc;
+
+      li {
+        @apply my-4;
+        @apply mx-0;
+      }
+    }
+
+    hr {
+      @apply my-8;
+      @apply h-px;
+      @apply border-none;
+      background-color: $border-color;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    p,
+    ul {
+      code {
+        @apply px-2;
+        @apply py-1;
+        @apply mx-1;
+        @apply rounded;
+        @apply antialiased;
+        font-size: 0.9rem;
+        background-color: #2b3047;
+        color: #f2f4ffcc;
+      }
+
+    }
+
+    pre {
+      @apply mockup-code;
+      @apply my-12;
+      @apply px-4;
+      background-color: #2b3047;
+      color: #f2f4ffcc;
+
+      code {
+        @apply py-4;
+        font-size: 1rem;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import Header from 'components/molecules/Header';
 import client from 'graphql/config/ApolloClientConfig';
 import Footer from 'components/molecules/Footer';
 import { RecoilRoot } from 'recoil';
-import 'styles/global.css';
+import 'styles/global.scss';
 import { Overpass, Noto_Sans_JP } from '@next/font/google';
 
 const overpass = Overpass({

@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import AuthField from 'components/organisms/AuthField';
-import { MarkdownTemplate } from 'components/templates/MarkdownTemplate';
 import client from 'graphql/config/ApolloClientConfig';
 import { GET_POST_QUERY } from 'graphql/queries/GetPostQuery';
 import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
@@ -10,6 +9,7 @@ import { haveAuthState } from 'states/atoms/haveAuth';
 import { convertDateDisplay } from 'utils/convertDateDisplay';
 import { BlogPost } from 'types/post';
 import { RootLayout } from 'components/layout';
+import ReactMarkdown from 'react-markdown';
 
 const Blog: NextPage<any> = ({ post }) => {
   const [isSecret, setIsSecret] = useState<boolean>(post.isSecret);
@@ -25,18 +25,19 @@ const Blog: NextPage<any> = ({ post }) => {
       {isSecret ? (
         <AuthField setIsSecret={setIsSecret} />
       ) : (
-        <div className="px-12 pt-20 pb-60">
-          <article className="mx-auto mt-40 flex max-w-3xl flex-col items-center justify-center">
-            <header className="grid justify-items-center gap-12">
-              <h1 className="text-4xl font-bold">{post.title}</h1>
+        <article className="mx-auto mt-24 flex max-w-3xl flex-col items-center justify-center md:mt-32">
+          <header className="grid justify-items-center gap-12">
+            <h1 className="text-4xl font-bold">{post.title}</h1>
+            <div className="grid justify-items-center gap-1 text-sm antialiased opacity-80">
+              <p>Published</p>
               <time dateTime={post.createdAt}>{dateDisplay}</time>
-            </header>
-            <span className="divider mt-20 mb-0"></span>
-            <div className="mt-20 w-full text-lg tracking-wide">
-              <MarkdownTemplate content={post.content} />
             </div>
-          </article>
-        </div>
+          </header>
+          <span className="divider mt-20 mb-0"></span>
+          <div className="mt-20 w-full text-lg tracking-wide">
+            <ReactMarkdown className="markdown">{post.content}</ReactMarkdown>
+          </div>
+        </article>
       )}
     </RootLayout>
   );
