@@ -88,7 +88,9 @@ const Contact: NextPage = () => {
         <div className="mt-16 grid w-full place-items-center gap-10 pb-40">
           <div className="form-control w-full max-w-xl">
             <label className="label">
-              <span className="label-text text-lg">{textInputContents[0].label}</span>
+              <span className="label-text text-base antialiased">
+                {textInputContents[0].label}
+              </span>
             </label>
             <input
               type="text"
@@ -105,7 +107,9 @@ const Contact: NextPage = () => {
           </div>
           <div className="form-control w-full max-w-xl">
             <label className="label">
-              <span className="label-text text-lg">{textInputContents[1].label}</span>
+              <span className="label-text text-base antialiased">
+                {textInputContents[1].label}
+              </span>
             </label>
             <input
               type="email"
@@ -122,7 +126,9 @@ const Contact: NextPage = () => {
           </div>
           <div className="form-control w-full max-w-xl">
             <label className="label">
-              <span className="label-text text-lg">{textAreaContent.label}</span>
+              <span className="label-text text-base antialiased">
+                {textAreaContent.label}
+              </span>
             </label>
             <textarea
               className="textarea-bordered textarea-secondary textarea max-w-xl text-lg placeholder:text-slate-600 focus:border-violet-600"
@@ -139,7 +145,7 @@ const Contact: NextPage = () => {
           </div>
           <button
             type="submit"
-            className="btn-primary btn mt-10 w-full max-w-sm text-lg font-medium"
+            className="btn mt-10 w-full max-w-sm bg-fuchsia-400 text-lg font-medium"
           >
             SEND
           </button>

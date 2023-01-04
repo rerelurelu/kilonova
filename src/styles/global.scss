@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-$font-color-link: #cc2072;
 $font-color-code: #d4d9dc;
 $bg-color-code-area: #4567a2;
 $border-color: #b2ebf24d;
@@ -80,7 +79,8 @@ $border-color: #b2ebf24d;
     }
 
     a {
-      color: $font-color-link;
+      @apply text-fuchsia-400;
+      @apply mx-px;
       text-decoration: underline;
     }
 
