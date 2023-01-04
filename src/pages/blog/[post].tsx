@@ -28,8 +28,8 @@ const Blog: NextPage<any> = ({ post }) => {
         <article className="mx-auto mt-24 flex max-w-3xl flex-col items-center justify-center md:mt-32">
           <header className="grid justify-items-center gap-12">
             <h1 className="text-4xl font-bold">{post.title}</h1>
-            <div className="grid justify-items-center gap-1 text-sm antialiased opacity-80">
-              <p>Published</p>
+            <div className="grid justify-items-center gap-1 antialiased">
+              <p className="text-sm font-bold opacity-60">Published</p>
               <time dateTime={post.createdAt}>{dateDisplay}</time>
             </div>
           </header>

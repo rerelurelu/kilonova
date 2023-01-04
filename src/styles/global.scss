@@ -36,16 +36,38 @@ $border-color: #b2ebf24d;
     h1,
     h2 {
       @apply mb-2;
+      @apply py-2;
       font-weight: bold;
+      border-bottom: 0.0625rem solid $border-color;
     }
 
     h1 {
       @apply text-3xl;
-      border-bottom: 0.0625rem solid $border-color;
     }
 
     h2 {
       @apply text-2xl;
+    }
+
+    h3 {
+      &::before {
+        @apply mr-2;
+        content: '#';
+      }
+    }
+
+    h4 {
+      &::before {
+        @apply mr-2;
+        content: '##';
+      }
+    }
+
+    h5 {
+      &::before {
+        @apply mr-2;
+        content: '###';
+      }
     }
 
     h3,
@@ -53,6 +75,7 @@ $border-color: #b2ebf24d;
     h5,
     h6 {
       @apply text-xl;
+      @apply mb-3;
       font-weight: 400;
     }
 
@@ -70,11 +93,13 @@ $border-color: #b2ebf24d;
 
     ul {
       @apply ml-7;
+      @apply mb-8;
       @apply list-disc;
 
       li {
-        @apply my-4;
         @apply mx-0;
+        @apply opacity-70;
+        font-size: 16px;
       }
     }
 
@@ -86,6 +111,8 @@ $border-color: #b2ebf24d;
     }
 
     p {
+      @apply mb-8;
+      @apply opacity-70;
       font-size: 16px;
     }
 
