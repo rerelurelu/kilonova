@@ -1,4 +1,5 @@
 import { RootLayout } from 'components/layout';
+import { ABOUT } from 'const/seo';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
 
@@ -18,7 +19,7 @@ const description = {
 
 const About: NextPage = () => {
   return (
-    <RootLayout title={TITLE}>
+    <RootLayout title={ABOUT.TITLE} description={ABOUT.DESCRIPTION}>
       <div className="mt-24 grid place-items-center px-6 md:mt-36">
         <div className="avatar">
           <div className="h-48 w-48 rounded-full ring ring-secondary ring-offset-2 ring-offset-base-100">

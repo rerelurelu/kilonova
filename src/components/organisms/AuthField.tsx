@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { useRecoilState } from 'recoil';
 import { haveAuthState } from 'states/atoms/haveAuth';
 import { RootLayout } from 'components/layout';
+import { AUTH } from 'const/seo';
 
-const TITLE = 'Auth';
-
+// Props
 type Props = {
   setIsSecret: Dispatch<SetStateAction<boolean>>;
 };
 
+// Component
 const AuthField: NextPage<Props> = ({ setIsSecret }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const [password, setPassword] = useState<string>('');
@@ -27,7 +28,7 @@ const AuthField: NextPage<Props> = ({ setIsSecret }) => {
   };
 
   return (
-    <RootLayout title={TITLE}>
+    <RootLayout title={AUTH.TITLE} description={AUTH.DESCRIPTION}>
       <div className="mt-40 grid place-items-center">
         {isError ? (
           <p className="text-2xl font-semibold text-red-500">
