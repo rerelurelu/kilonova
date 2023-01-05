@@ -5,8 +5,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import { FormInputs } from 'types/formInputs';
 import { Toaster, toast } from 'react-hot-toast';
 import { RootLayout } from 'components/layout';
-
-const TITLE = 'Contact';
+import { CONTACT } from 'const/seo';
 
 const errorMessages = {
   nameError: 'Name is required.',
@@ -71,7 +70,7 @@ const Contact: NextPage = () => {
   };
 
   return (
-    <RootLayout title={TITLE}>
+    <RootLayout title={CONTACT.TITLE} description={CONTACT.DESCRIPTION}>
       <Toaster
         position="top-center"
         reverseOrder={false}
@@ -81,7 +80,7 @@ const Contact: NextPage = () => {
       />
       <header className="m-header md:m-header-md">
         <h1 className="text-center text-4xl font-normal tracking-widest text-white">
-          {TITLE}
+          {CONTACT.TITLE}
         </h1>
       </header>
       <form onSubmit={handleSubmit(handleSendMessage)}>

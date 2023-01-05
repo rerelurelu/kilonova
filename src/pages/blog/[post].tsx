@@ -21,7 +21,7 @@ const Blog: NextPage<any> = ({ post }) => {
   }
 
   return (
-    <RootLayout title={post.title}>
+    <RootLayout title={post.title} description={post.title}>
       {isSecret ? (
         <AuthField setIsSecret={setIsSecret} />
       ) : (

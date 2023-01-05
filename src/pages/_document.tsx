@@ -8,15 +8,9 @@ class MyDocument extends Document {
       <Html lang="ja" data-theme="mytheme">
         <Head>
           <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-          <meta name="description" content="zoniha's blog" />
-          <meta property="og:type" content="blog" />
-          <meta property="og:title" content="zoniha's blog" />
-          <meta
-            property="og:image"
-            content="https://user-images.githubusercontent.com/43092452/180591686-565e96d1-4e0d-4650-96c5-9fd6cad6c517.png"
-          />
-          <meta property="og:description" content="zonihaの個人サイトです。" />
-          <meta property="og:site_name" content="zoniha's blog" />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="zoniha" />
+          <meta property="og:image" content="https://zoniha.vercel.app/og_image.png" />
           <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
         </Head>
         <body>

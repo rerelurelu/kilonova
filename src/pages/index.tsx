@@ -5,9 +5,8 @@ import client from 'graphql/config/ApolloClientConfig';
 import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
 import { BlogPost, Posts, ZennPost } from 'types/post';
 import { RootLayout } from 'components/layout';
-
-const TITLE = 'Blog';
-const ZENN_FEED_URL = `https://zenn.dev/astrologian/feed`;
+import { BLOG } from 'const/seo';
+import { ZENN_FEED_URL } from 'const/url';
 
 type Props = {
   posts: Posts;
@@ -15,10 +14,10 @@ type Props = {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <RootLayout title={TITLE}>
+    <RootLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
       <header className="m-header md:m-header-md">
         <h1 className="text-center text-4xl font-normal tracking-widest text-white">
-          {TITLE}
+          {BLOG.TITLE}
         </h1>
       </header>
       <BlogField posts={posts} />
