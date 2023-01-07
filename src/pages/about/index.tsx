@@ -3,8 +3,6 @@ import { ABOUT } from 'const/seo';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
 
-const TITLE = 'About';
-
 const links = [
   { href: 'https://github.com/zoniha', content: 'GitHub' },
   { href: 'https://www.resume.id/zoniha', content: 'Resume' },

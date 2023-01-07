@@ -2,17 +2,11 @@ import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
 import BlogField from 'components/organisms/BlogField';
 import client from 'graphql/config/ApolloClientConfig';
+import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
 import { BlogPost, Posts, ZennPost } from 'types/post';
 import { RootLayout } from 'components/layout';
-import { HOME } from 'const/seo';
+import { BLOG } from 'const/seo';
 import { ZENN_FEED_URL } from 'const/url';
-import { GET_RECENTLY_POSTS_QUERY } from '../graphql/queries/GetRecentlyPostsQuery';
-
-const description = {
-  para1: `Welcome to my site!`,
-  para2: `I'm zoniha.`,
-  para3: `I live in Tokyo, Japan.`,
-} as const;
 
 type Props = {
   posts: Posts;
@@ -20,23 +14,13 @@ type Props = {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <RootLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-      <header className="m-header md:m-header-md md:grid md:justify-items-center">
-        <div className="mockup-code bg-violet-300 pb-12 tracking-tight md:w-[80%]">
-          <pre data-prefix="1">
-            <code>{description.para1}</code>
-          </pre>
-          <pre data-prefix="2">
-            <code>{description.para2}</code>
-          </pre>
-          <pre data-prefix="3">
-            <code>{description.para3}</code>
-          </pre>
-        </div>
+    <RootLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+      <header className="m-header md:m-header-md">
+        <h1 className="text-center text-4xl font-normal tracking-widest text-white">
+          {BLOG.TITLE}
+        </h1>
       </header>
-      <div className="mt-28 sm:mt-32 md:mt-44">
-        <BlogField posts={posts} />
-      </div>
+      <BlogField posts={posts} />
     </RootLayout>
   );
 };
@@ -48,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const feedZenn: ZennPost = await parser.parseURL(ZENN_FEED_URL);
 
   const { data } = await client.query({
-    query: GET_RECENTLY_POSTS_QUERY,
+    query: GET_POSTS_QUERY,
   });
 
   const posts: Posts = [];
@@ -77,7 +61,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      posts: posts.slice(0, 3),
+      posts: posts,
     },
   };
 };

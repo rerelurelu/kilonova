@@ -4,6 +4,12 @@ type SEO = {
   DESCRIPTION: string;
 };
 
+// Home page
+export const HOME: SEO = {
+  TITLE: `zoniha's playground`,
+  DESCRIPTION: `zoniha's personal website`,
+};
+
 // Authentication page
 export const AUTH: SEO = {
   TITLE: 'Auth',
