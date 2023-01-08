@@ -6,7 +6,7 @@ import { BlogPost, Posts, ZennPost } from 'types/post';
 import { RootLayout } from 'components/layout';
 import { HOME } from 'const/seo';
 import { ZENN_FEED_URL } from 'const/url';
-import { GET_RECENTLY_POSTS_QUERY } from '../graphql/queries/GetRecentlyPostsQuery';
+import { GET_RECENT_POSTS_QUERY } from '../graphql/queries/GetRecentPostsQuery';
 
 const description = {
   para1: `Welcome to my site!`,
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const feedZenn: ZennPost = await parser.parseURL(ZENN_FEED_URL);
 
   const { data } = await client.query({
-    query: GET_RECENTLY_POSTS_QUERY,
+    query: GET_RECENT_POSTS_QUERY,
   });
 
   const posts: Posts = [];

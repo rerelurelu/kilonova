@@ -22,7 +22,7 @@ const BlogField: NextPage<Props> = ({ posts }) => {
   return (
     <section className="base:mt-24 mx-auto mt-16 grid w-full justify-items-center md:mt-36">
       {isHome && (
-        <h2 className="mb-6 text-left text-xl md:mb-12 md:text-3xl">Recently Posts</h2>
+        <h2 className="mb-6 text-left text-xl md:mb-12 md:text-3xl">Recent Posts</h2>
       )}
       <div className="mt-8 grid w-full max-w-screen-lg gap-8 sm:grid-cols-1 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post: Post) => {
