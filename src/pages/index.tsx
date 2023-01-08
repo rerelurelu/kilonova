@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
-import BlogField from 'components/organisms/BlogField';
 import client from 'graphql/config/ApolloClientConfig';
 import { BlogPost, Posts, ZennPost } from 'types/post';
-import { RootLayout } from 'components/layout';
+import RootLayout from 'components/layout';
+import BlogField from 'components/model/blogField';
 import { HOME } from 'const/seo';
 import { ZENN_FEED_URL } from 'const/url';
 import { GET_RECENT_POSTS_QUERY } from '../graphql/queries/GetRecentPostsQuery';

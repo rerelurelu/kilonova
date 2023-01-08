@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ReactNode } from 'react';
-import MyHead from './atoms/MyHead';
+import MyHead from './myHead';
 
 type Props = {
   title: string;
@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const RootLayout: NextPage<Props> = ({ title, description, children }) => {
+const RootLayout: NextPage<Props> = ({ title, description, children }) => {
   return (
     <>
       <MyHead title={title} description={description} />
@@ -16,3 +16,5 @@ export const RootLayout: NextPage<Props> = ({ title, description, children }) =>
     </>
   );
 };
+
+export default RootLayout;

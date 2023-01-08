@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
-import PostCard from '../molecules/PostCard';
+import PostCard from '../ui/postCard';
 import { Post, Posts } from 'types/post';
 import { useSetRecoilState } from 'recoil';
 import { currentPageState } from 'states/atoms/currentPage';

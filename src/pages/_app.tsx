@@ -1,9 +1,9 @@
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
-import Header from 'components/molecules/Header';
+import Header from 'components/header';
 import client from 'graphql/config/ApolloClientConfig';
-import Footer from 'components/molecules/Footer';
+import Footer from 'components/footer';
 import { RecoilRoot } from 'recoil';
 import 'styles/global.scss';
 import { Overpass, Noto_Sans_JP } from '@next/font/google';
