@@ -2,9 +2,9 @@ import { NextPage } from 'next';
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import Link from 'next/link';
 import { useRecoilState } from 'recoil';
-import { haveAuthState } from 'states/atoms/haveAuth';
-import RootLayout from 'components/layout';
-import { AUTH } from 'const/seo';
+import { haveAuthState } from '@/states/atoms/haveAuth';
+import RootLayout from '@/components/layout';
+import { AUTH } from '@/const/seo';
 
 type Props = {
   setIsSecret: Dispatch<SetStateAction<boolean>>;

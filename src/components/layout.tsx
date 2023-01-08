@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { ReactNode } from 'react';
-import MyHead from './myHead';
+import MyHead from '@/components/myHead';
 
 type Props = {
   title: string;

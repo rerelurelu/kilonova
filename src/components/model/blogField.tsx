@@ -1,10 +1,10 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
-import PostCard from '../ui/postCard';
-import { Post, Posts } from 'types/post';
 import { useSetRecoilState } from 'recoil';
-import { currentPageState } from 'states/atoms/currentPage';
+import PostCard from '@/components/ui/postCard';
+import { Post, Posts } from '@/types/post';
+import { currentPageState } from '@/states/atoms/currentPage';
 
 type Props = {
   posts: Posts;
