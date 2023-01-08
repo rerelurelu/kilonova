@@ -1,5 +1,5 @@
-import { RootLayout } from 'components/layout';
-import { NOT_FOUND } from 'const/seo';
+import RootLayout from '@/components/layout';
+import { NOT_FOUND } from '@/const/seo';
 import { NextPage } from 'next';
 
 const Custom404: NextPage = () => {

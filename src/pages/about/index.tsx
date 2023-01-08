@@ -1,5 +1,5 @@
-import { RootLayout } from 'components/layout';
-import { ABOUT } from 'const/seo';
+import RootLayout from '@/components/layout';
+import { ABOUT } from '@/const/seo';
 import { NextPage } from 'next';
 import NextLink from 'next/link';
 

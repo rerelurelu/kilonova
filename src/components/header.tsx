@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
-import { currentPageState } from 'states/atoms/currentPage';
+import { currentPageState } from '@/states/atoms/currentPage';
 
 const ENTRIES = [
   { href: '/', content: 'home' },

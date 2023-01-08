@@ -1,12 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
-import BlogField from 'components/organisms/BlogField';
-import client from 'graphql/config/ApolloClientConfig';
-import { GET_POSTS_QUERY } from 'graphql/queries/GetPostsQuery';
-import { BlogPost, Posts, ZennPost } from 'types/post';
-import { RootLayout } from 'components/layout';
-import { BLOG } from 'const/seo';
-import { ZENN_FEED_URL } from 'const/url';
+import BlogField from '@/components/model/blogField';
+import client from '@/graphql/config/ApolloClientConfig';
+import { GET_POSTS_QUERY } from '@/graphql/queries/GetPostsQuery';
+import { BlogPost, Posts, ZennPost } from '@/types/post';
+import RootLayout from '@/components/layout';
+import { BLOG } from '@/const/seo';
+import { ZENN_FEED_URL } from '@/const/url';
 
 type Props = {
   posts: Posts;
