@@ -1,6 +1,6 @@
-import { DocumentNode, gql } from '@apollo/client';
+import { gql } from '@apollo/client';
 
-export const GET_POSTS_QUERY: DocumentNode = gql`
+export const GET_POSTS_QUERY = gql`
   query GetPosts {
     posts(orderBy: publishedAt_DESC, last: 30) {
       createdAt

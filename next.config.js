@@ -9,7 +9,7 @@ const nextConfig = withInterceptStdout(
       scrollRestoration: true,
     },
   },
-  (text) => (text.includes('Duplicate atom key') ? '' : text)
+  (text) => (text.includes('Duplicate atom key') ? '' : text),
 );
 
 module.exports = nextConfig;

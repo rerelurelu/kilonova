@@ -1,12 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
+
+import RootLayout from '@/components/layout';
 import BlogField from '@/components/model/blogField';
+import { BLOG } from '@/const/seo';
+import { ZENN_FEED_URL } from '@/const/url';
 import client from '@/graphql/config/ApolloClientConfig';
 import { GET_POSTS_QUERY } from '@/graphql/queries/GetPostsQuery';
 import { BlogPost, Posts, ZennPost } from '@/types/post';
-import RootLayout from '@/components/layout';
-import { BLOG } from '@/const/seo';
-import { ZENN_FEED_URL } from '@/const/url';
 
 type Props = {
   posts: Posts;
@@ -15,8 +16,8 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }) => {
   return (
     <RootLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
-      <header className="m-header md:m-header-md">
-        <h1 className="text-center text-4xl font-normal tracking-widest text-white">
+      <header className='m-header md:m-header-md'>
+        <h1 className='text-center text-4xl font-normal tracking-widest text-white'>
           {BLOG.TITLE}
         </h1>
       </header>

@@ -21,7 +21,7 @@ module.exports = {
       },
       margin: {
         'header-md': '8rem auto 0',
-        'header': '5rem auto 0'
+        header: '5rem auto 0',
       },
       colors: {
         gBlue: '#647DEE',

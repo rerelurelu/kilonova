@@ -1,12 +1,13 @@
+import { ApolloProvider } from '@apollo/client';
+import { Overpass, Noto_Sans_JP } from '@next/font/google';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
-import { ApolloProvider } from '@apollo/client';
+import { RecoilRoot } from 'recoil';
+
+import Footer from '@/components/footer';
 import Header from '@/components/header';
 import client from '@/graphql/config/ApolloClientConfig';
-import Footer from '@/components/footer';
-import { RecoilRoot } from 'recoil';
 import '@/styles/global.scss';
-import { Overpass, Noto_Sans_JP } from '@next/font/google';
 
 const overpass = Overpass({
   weight: ['300', '400', '500', '700'],
@@ -25,7 +26,7 @@ const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
       `}</style>
       <ApolloProvider client={client}>
         <Header />
-        <div className="min-h-screen">
+        <div className='min-h-screen'>
           <Component {...pageProps} />
         </div>
         <Footer />
