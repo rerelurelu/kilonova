@@ -3,7 +3,7 @@ export type Post = {
   link: string;
   title: string;
   createdAt: string;
-  tags: string[]
+  tags: string[];
 };
 
 export type Posts = Post[];

@@ -1,12 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Parser from 'rss-parser';
-import client from '@/graphql/config/ApolloClientConfig';
-import { BlogPost, Posts, ZennPost } from '@/types/post';
+
 import RootLayout from '@/components/layout';
 import BlogField from '@/components/model/blogField';
 import { HOME } from '@/const/seo';
 import { ZENN_FEED_URL } from '@/const/url';
+import client from '@/graphql/config/ApolloClientConfig';
 import { GET_RECENT_POSTS_QUERY } from '@/graphql/queries/GetRecentPostsQuery';
+import { BlogPost, Posts, ZennPost } from '@/types/post';
 
 const description = {
   para1: `Welcome to my site!`,
@@ -21,20 +22,20 @@ type Props = {
 const Home: NextPage<Props> = ({ posts }) => {
   return (
     <RootLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-      <header className="m-header md:m-header-md md:grid md:justify-items-center">
-        <div className="mockup-code bg-violet-300 pb-12 tracking-tight md:w-[80%]">
-          <pre data-prefix="1">
+      <header className='m-header md:m-header-md md:grid md:justify-items-center'>
+        <div className='mockup-code bg-violet-300 pb-12 tracking-tight md:w-[80%]'>
+          <pre data-prefix='1'>
             <code>{description.para1}</code>
           </pre>
-          <pre data-prefix="2">
+          <pre data-prefix='2'>
             <code>{description.para2}</code>
           </pre>
-          <pre data-prefix="3">
+          <pre data-prefix='3'>
             <code>{description.para3}</code>
           </pre>
         </div>
       </header>
-      <div className="mt-28 sm:mt-32 md:mt-44">
+      <div className='mt-28 sm:mt-32 md:mt-44'>
         <BlogField posts={posts} />
       </div>
     </RootLayout>
