@@ -11,9 +11,11 @@ import '@/styles/global.scss';
 
 const overpass = Overpass({
   weight: ['300', '400', '500', '700'],
+  subsets: [],
 });
 const notoSansJP = Noto_Sans_JP({
   weight: ['300', '400', '500', '700'],
+  subsets: ['japanese'],
 });
 
 const MyApp: NextPage<AppProps> = ({ Component, pageProps }) => {
