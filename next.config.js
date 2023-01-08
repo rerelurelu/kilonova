@@ -1,10 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  experimental: {
-    scrollRestoration: true,
+const withInterceptStdout = require('next-intercept-stdout');
+
+const nextConfig = withInterceptStdout(
+  {
+    reactStrictMode: true,
+    swcMinify: true,
+    experimental: {
+      scrollRestoration: true,
+    },
   },
-};
+  (text) => (text.includes('Duplicate atom key') ? '' : text)
+);
 
 module.exports = nextConfig;
