@@ -6,7 +6,6 @@ import { ABOUT } from '@/const/seo';
 
 const links = [
   { href: 'https://github.com/zoniha', content: 'GitHub' },
-  { href: 'https://www.resume.id/zoniha', content: 'Resume' },
   { href: 'https://zenn.dev/astrologian', content: 'Zenn' },
 ] as const;
 
