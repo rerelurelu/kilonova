@@ -23,7 +23,7 @@ const Home: NextPage<Props> = ({ posts }) => {
   return (
     <RootLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
       <header className='m-header md:m-header-md md:grid md:justify-items-center'>
-        <div className='mockup-code bg-violet-300 pb-12 tracking-tight md:w-[80%]'>
+        <div className='mockup-code max-w-4xl bg-violet-300 pb-12 tracking-tight md:w-[80%]'>
           <pre data-prefix='1'>
             <code>{description.para1}</code>
           </pre>
