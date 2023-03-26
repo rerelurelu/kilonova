@@ -1,28 +1,11 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
-import { NextRouter, useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
 
-import { currentPageState } from '@/states/atoms/currentPage';
-
-const ENTRIES = [
-  { href: '/', content: 'home' },
-  { href: '/blog', content: 'blog' },
-  { href: '/about', content: 'about' },
-  { href: '/contact', content: 'contact' },
-] as const;
+import { ENTRIES } from '@/const/entries';
+import { useCurrentPage } from '@/hooks/useCurrentPage';
 
 const Header: NextPage = () => {
-  const router: NextRouter = useRouter();
-  const path: string = router.asPath;
-  const currentPath = router.asPath === '/' ? 'home' : path.slice(1);
-
-  const [currentPage, setCurrentPage] = useRecoilState<string>(currentPageState);
-
-  useEffect(() => {
-    setCurrentPage(currentPath);
-  }, [setCurrentPage, currentPath]);
+  const currentPage = useCurrentPage();
 
   return (
     <div className='navbar fixed z-50 flex h-20 justify-center bg-base-100/30 px-0 pt-4 backdrop-blur md:justify-end md:px-12 md:pt-4'>
