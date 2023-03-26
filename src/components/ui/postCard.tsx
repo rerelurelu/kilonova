@@ -1,3 +1,5 @@
+import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
@@ -18,8 +20,13 @@ const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
       <div className='card-body justify-between p-card text-white'>
         <header className='mb-auto'>
           <h2 className='card-title break-words text-lg'>
-            <Link href={href} className='hover:text-fuchsia-300'>
+            <Link
+              href={href}
+              className='hover:text-fuchsia-300'
+              target={tags.includes('zenn') ? '_blank' : undefined}
+            >
               {title}
+              {tags.includes('zenn') && <FontAwesomeIcon icon={faUpRightFromSquare} />}
             </Link>
           </h2>
         </header>
