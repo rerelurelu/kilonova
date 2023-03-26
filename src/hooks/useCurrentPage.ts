@@ -16,8 +16,6 @@ export const useCurrentPage = () => {
     setCurrentPage(currentPath);
   }, [setCurrentPage, currentPath]);
 
-  console.log(currentPage);
-
   return currentPage;
 };
 
