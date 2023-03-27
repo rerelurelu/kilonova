@@ -26,7 +26,12 @@ const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
               target={tags.includes('zenn') ? '_blank' : undefined}
             >
               {title}
-              {tags.includes('zenn') && <FontAwesomeIcon icon={faUpRightFromSquare} />}
+              {tags.includes('zenn') && (
+                <FontAwesomeIcon
+                  icon={faUpRightFromSquare}
+                  style={{ marginLeft: '3px', opacity: 0.6 }}
+                />
+              )}
             </Link>
           </h2>
         </header>
