@@ -18,14 +18,18 @@
     "paths": {
       "@/components/*": ["components/*"],
       "@/const/*": ["const/*"],
-      "@/graphql/*": ["graphql/*"],
+      "@/features/*": ["features/*"],
       "@/states/*": ["states/*"],
       "@/types/*": ["types/*"],
-      "@/utils/*": ["utils/*"],
       "@/styles/*": ["styles/*"],
       "@/hooks/*": ["hooks/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
