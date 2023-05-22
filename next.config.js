@@ -8,6 +8,7 @@ const nextConfig = withInterceptStdout(
     experimental: {
       scrollRestoration: true,
     },
+    output: 'export',
   },
   (text) => (text.includes('Duplicate atom key') ? '' : text),
 );

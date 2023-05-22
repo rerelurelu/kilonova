@@ -1,6 +1,8 @@
+'use client';
+
 import { NextPage } from 'next';
 import Link from 'next/link';
-import { NextRouter, useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useSetRecoilState } from 'recoil';
 
 import PostCard from '@/components/ui/postCard';
@@ -12,8 +14,8 @@ type Props = {
 };
 
 const BlogField: NextPage<Props> = ({ posts }) => {
-  const router: NextRouter = useRouter();
-  const isHome: boolean = router.asPath === '/';
+  const pathname = usePathname();
+  const isHome: boolean = pathname === '/';
   const setCurrentPage = useSetRecoilState<string>(currentPageState);
 
   const handleClick = (): void => {

@@ -8,7 +8,7 @@ const Header: NextPage = () => {
   const currentPage = useCurrentPage();
 
   return (
-    <div className='navbar fixed z-50 flex h-20 justify-center bg-base-100/30 px-0 pt-4 backdrop-blur md:justify-end md:px-12 md:pt-4'>
+    <div className='navbar fixed inset-x-0 top-0 z-50 flex h-20 justify-center bg-base-100/30 px-0 pt-4 backdrop-blur md:justify-end md:px-12 md:pt-4'>
       <ul className='menu menu-horizontal p-0'>
         {ENTRIES.map(({ href, content }) => {
           return (

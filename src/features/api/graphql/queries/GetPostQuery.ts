@@ -5,7 +5,6 @@ export const GET_POST_QUERY = gql`
     posts(where: { slug: $slug }) {
       createdAt
       title
-      isSecret
       content
     }
   }

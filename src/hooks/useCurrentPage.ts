@@ -1,4 +1,6 @@
-import { NextRouter, useRouter } from 'next/router';
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 
@@ -6,9 +8,9 @@ import { ENTRIES } from '@/const/entries';
 import { currentPageState } from '@/states/atoms/currentPage';
 
 export const useCurrentPage = () => {
-  const router: NextRouter = useRouter();
-  const path: string = router.asPath;
-  const currentPath = getCurrentPath(path);
+  const pathname = usePathname();
+  const path: string | null = pathname;
+  const currentPath = getCurrentPath(path!);
 
   const [currentPage, setCurrentPage] = useRecoilState<string>(currentPageState);
 

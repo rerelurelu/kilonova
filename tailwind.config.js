@@ -1,15 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
-      fontFamily: {
-        body: ['Overpass', 'Noto Sans JP'],
-      },
       gridTemplateColumns: {
         posts: 'repeat(auto-fill, minmax(32rem,1fr))',
       },
@@ -20,8 +13,8 @@ module.exports = {
         card: '1.25rem 2.5rem 1.25rem 1.25rem',
       },
       margin: {
-        'header-md': '8rem auto 0',
-        header: '5rem auto 0',
+        'header-md': '10rem auto 0',
+        header: '8rem auto 0',
       },
       colors: {
         gBlue: '#647DEE',
