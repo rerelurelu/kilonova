@@ -7,6 +7,12 @@ $bg-color-code-area: #4567a2;
 $border-color: #b2ebf24d;
 
 @layer components {
+  body {
+    font-family: var(--font-overpass), var(--font-noto-sans-jp)
+  }
+}
+
+@layer components {
   .nav-underline {
     @apply absolute;
     @apply -bottom-2;

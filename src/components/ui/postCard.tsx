@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
-import { convertDateDisplay } from '@/utils/convertDateDisplay';
+import { convertDateDisplay } from '@/features/common/convertDateDisplay';
 
 type Props = {
   title: string;
