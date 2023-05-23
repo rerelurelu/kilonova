@@ -13,7 +13,7 @@ const Header: NextPage = () => {
         {ENTRIES.map(({ href, content }) => {
           return (
             <li key={content}>
-              <Link href={href} className='hover:bg-transparent' id={content}>
+              <Link href={href} className='hover:bg-transparent focus:bg-transparent' id={content}>
                 <span
                   // eslint-disable-next-line tailwindcss/no-custom-classname
                   className={`after:nav-underline relative text-base font-semibold capitalize tracking-widest text-white antialiased md:text-lg ${
