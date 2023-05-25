@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const formValidationScheme = z.object({
+export const formValidationSchema = z.object({
   name: z.string().nonempty('名前は入力必須です。'),
   email: z
     .string()

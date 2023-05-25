@@ -6,7 +6,7 @@ import axios from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-import { formValidationScheme } from '@/features/common/formValidationScheme';
+import { formValidationSchema } from '@/features/common/formValidationSchema';
 import { FormInputs } from '@/types/formInputs';
 
 const sendMessageType = {
@@ -32,7 +32,7 @@ const Form = () => {
     formState: { errors },
   } = useForm<FormInputs>({
     mode: 'onBlur',
-    resolver: zodResolver(formValidationScheme),
+    resolver: zodResolver(formValidationSchema),
   });
 
   const handleSendMessage: SubmitHandler<FormInputs> = (data: FormInputs) => {
