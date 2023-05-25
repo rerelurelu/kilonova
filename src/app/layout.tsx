@@ -8,8 +8,8 @@ import { RecoilRoot } from 'recoil';
 
 import '@/styles/global.scss';
 
-import Footer from '@/components/footer';
-import Header from '@/components/header';
+import Footer from '@/components/ui/footer';
+import Header from '@/components/ui/header';
 import client from '@/features/api/graphql/config/ApolloClientConfig';
 
 type Props = {

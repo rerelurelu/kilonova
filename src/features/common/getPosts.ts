@@ -3,7 +3,7 @@ import Parser from 'rss-parser';
 import { ZENN_FEED_URL } from '@/const/url';
 import client from '@/features/api/graphql/config/ApolloClientConfig';
 import { GET_RECENT_POSTS_QUERY } from '@/features/api/graphql/queries/GetRecentPostsQuery';
-import { BlogPost, Post, Posts, ZennPost } from '@/types/post';
+import { BlogPost, Post, ZennPost } from '@/types/post';
 
 export const getPosts = async (): Promise<Post[]> => {
   const parser = new Parser();
@@ -13,7 +13,7 @@ export const getPosts = async (): Promise<Post[]> => {
     query: GET_RECENT_POSTS_QUERY,
   });
 
-  const posts: Posts = [];
+  const posts: Post[] = [];
 
   feedZenn.items.map((post: ZennPost) => {
     posts.push({

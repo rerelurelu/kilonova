@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import BlogField from '@/components/model/blogField';
 import { HOME } from '@/const/seo';
 import { getPosts } from '@/features/common/getPosts';
-import { Posts } from '@/types/post';
+import { Post } from '@/types/post';
 
 const intro = {
   para1: `Welcome to my site!`,
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
-  const posts: Posts = await getPosts();
-  const recentPosts: Posts = posts.slice(0, 3);
+  const posts: Post[] = await getPosts();
+  const recentPosts: Post[] = posts.slice(0, 3);
 
   return (
     <>
