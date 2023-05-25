@@ -7,10 +7,10 @@ import { useSetRecoilState } from 'recoil';
 
 import PostCard from '@/components/ui/postCard';
 import { currentPageState } from '@/states/atoms/currentPage';
-import { Post, Posts } from '@/types/post';
+import { Post } from '@/types/post';
 
 type Props = {
-  posts: Posts;
+  posts: Post[];
 };
 
 const BlogField: NextPage<Props> = ({ posts }) => {

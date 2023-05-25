@@ -1,3 +1,3 @@
-export type haveAuth = {
+export interface haveAuth {
   haveAuth: boolean;
-};
+}

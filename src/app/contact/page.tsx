@@ -1,7 +1,7 @@
 import { Metadata, NextPage } from 'next';
-import { Toaster } from 'react-hot-toast';
 
-import Form from '@/components/form';
+import Form from '@/components/ui/form';
+import MyToaster from '@/components/ui/toaster';
 import { CONTACT } from '@/const/seo';
 
 const siteName = 'zoniha';
@@ -24,13 +24,7 @@ export const metadata: Metadata = {
 const Contact: NextPage = () => {
   return (
     <>
-      <Toaster
-        position='top-center'
-        reverseOrder={false}
-        toastOptions={{
-          duration: 5000,
-        }}
-      />
+      <MyToaster />
       <header className='m-header md:m-header-md'>
         <h1 className='text-center text-4xl font-normal tracking-widest text-white'>
           {CONTACT.TITLE}
