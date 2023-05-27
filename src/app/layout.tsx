@@ -17,13 +17,13 @@ type Props = {
 };
 
 const overpass = Overpass({
-  weight: ['300', '400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: [],
   variable: '--font-overpass',
   display: 'swap',
 });
 const notoSansJP = Noto_Sans_JP({
-  weight: ['300', '400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: [],
   variable: '--font-noto-sans-jp',
   display: 'swap',
