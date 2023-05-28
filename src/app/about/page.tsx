@@ -1,4 +1,5 @@
 import { Metadata, NextPage } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { ABOUT } from '@/const/seo';
@@ -35,7 +36,7 @@ const About: NextPage = () => {
     <div className='mt-24 grid place-items-center px-6 md:mt-36'>
       <div className='avatar'>
         <div className='h-48 w-48 rounded-full ring ring-secondary ring-offset-2 ring-offset-base-100'>
-          <img src='avatar.png' alt="zoniha's avatar image" />
+          <Image src='avatar.png' alt="zoniha's avatar image" />
         </div>
       </div>
       <span className='mt-10 text-4xl'>zoniha</span>
