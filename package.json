@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint --dir src",
     "lint:fix": "yarn lint --fix",
-    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'"
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json}'",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
@@ -31,10 +32,12 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.4",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
     "autoprefixer": "^10.4.13",
+    "cross-env": "^7.0.3",
     "daisyui": "^2.38.1",
     "eslint": "8.31.0",
     "eslint-config-next": "^13.4.2",
