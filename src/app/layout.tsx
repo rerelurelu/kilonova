@@ -2,6 +2,7 @@
 
 import { ApolloProvider } from '@apollo/client';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Analytics } from '@vercel/analytics/react';
 import { Noto_Sans_JP, Overpass } from 'next/font/google';
 import { ReactNode } from 'react';
 import { RecoilRoot } from 'recoil';
@@ -32,6 +33,7 @@ const notoSansJP = Noto_Sans_JP({
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang='ja' data-theme='mytheme' className={`${overpass.variable} ${notoSansJP.variable}`}>
+      <Analytics mode={'production'} />;
       <RecoilRoot>
         <body>
           <ApolloProvider client={client}>
