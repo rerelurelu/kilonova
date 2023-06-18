@@ -4,20 +4,12 @@ import Form from '@/components/ui/form';
 import MyToaster from '@/components/ui/toaster';
 import { CONTACT } from '@/const/seo';
 
-const siteName = 'zoniha';
-const description = CONTACT.DESCRIPTION;
-
 export const metadata: Metadata = {
-  title: {
-    default: siteName,
-    template: `%s - ${siteName}`,
-  },
-  description: description,
+  title: CONTACT.TITLE,
+  description: CONTACT.DESCRIPTION,
   openGraph: {
-    title: siteName,
-    siteName,
-    locale: 'ja_JP',
-    type: 'website',
+    title: CONTACT.TITLE,
+    description: CONTACT.DESCRIPTION,
   },
 };
 

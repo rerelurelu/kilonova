@@ -2,23 +2,17 @@ import { Metadata } from 'next';
 
 import BlogField from '@/components/model/blogField';
 import { BLOG } from '@/const/seo';
-import { getPosts } from '@/features/common/getPosts';
+import { getPosts } from '@/features/api/getPosts';
 import { Post } from '@/types/post';
 
-const siteName = 'zoniha';
-const description = BLOG.DESCRIPTION;
+const title = 'Blog';
 
 export const metadata: Metadata = {
-  title: {
-    default: siteName,
-    template: `%s - ${siteName}`,
-  },
-  description: description,
+  title: title,
+  description: BLOG.DESCRIPTION,
   openGraph: {
-    title: siteName,
-    siteName,
-    locale: 'ja_JP',
-    type: 'website',
+    title: title,
+    description: BLOG.DESCRIPTION,
   },
 };
 

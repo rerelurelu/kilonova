@@ -3,9 +3,8 @@ import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
 import { BLOG } from '@/const/seo';
-import client from '@/features/api/graphql/config/ApolloClientConfig';
-import { GET_POST_QUERY } from '@/features/api/graphql/queries/GetPostQuery';
-import { GET_POSTS_QUERY } from '@/features/api/graphql/queries/GetPostsQuery';
+import { getPost } from '@/features/api/getPost';
+import { getBlogPosts } from '@/features/api/getPosts';
 import { convertDateDisplay } from '@/features/common/convertDateDisplay';
 import { BlogPost } from '@/types/post';
 
@@ -17,21 +16,18 @@ export const generateMetadata = async ({
   params: { slug: string };
 }): Promise<Metadata> => {
   const post = await getPost(slug);
-  let siteName = 'zoniha';
+  let title = '';
 
   if (post) {
-    siteName = post.title + ' - zoniha';
-  } else {
+    title = post.title;
   }
 
   return {
-    title: siteName,
+    title: title,
     description: description,
     openGraph: {
-      title: siteName,
-      siteName,
-      locale: 'ja_JP',
-      type: 'website',
+      title: title,
+      description: description,
     },
   };
 };
@@ -67,26 +63,13 @@ const Blog = async ({ params: { slug } }: { params: { slug: string } }) => {
 export default Blog;
 
 export const generateStaticParams = async () => {
-  const { data } = await client.query({
-    query: GET_POSTS_QUERY,
-  });
+  const posts: BlogPost[] = await getBlogPosts();
 
-  const paths = data.posts.map((post: BlogPost) => {
+  const paths = posts.map((post: BlogPost) => {
     return {
       slug: post.slug,
     };
   });
 
   return [...paths];
-};
-
-const getPost = async (slug: string) => {
-  const { data } = await client.query({
-    query: GET_POST_QUERY,
-    variables: {
-      slug: slug,
-    },
-  });
-
-  return data.posts[0];
 };

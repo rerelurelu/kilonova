@@ -2,7 +2,7 @@
 
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
@@ -15,6 +15,10 @@ const sendMessageType = {
 };
 
 type sendMessageType = (typeof sendMessageType)[keyof typeof sendMessageType];
+type Sending = {
+  isDisabled: boolean;
+  buttonLabel: string;
+};
 
 const inputContentType = {
   name: { label: 'Name*', placeholder: 'Your Name' },
@@ -25,6 +29,10 @@ const inputContentType = {
 type inputContentType = (typeof inputContentType)[keyof typeof inputContentType];
 
 const Form = () => {
+  const initialSendingState: Sending = {
+    isDisabled: false,
+    buttonLabel: 'SEND',
+  };
   const {
     register,
     handleSubmit,
@@ -35,7 +43,10 @@ const Form = () => {
     resolver: zodResolver(formValidationSchema),
   });
 
+  const [sendingState, setSendingState] = useState<Sending>(initialSendingState);
+
   const handleSendMessage: SubmitHandler<FormInputs> = (data: FormInputs) => {
+    setSendingState({ isDisabled: true, buttonLabel: 'SENDING...' });
     const formData = new FormData();
 
     for (let field in data) {
@@ -43,10 +54,9 @@ const Form = () => {
       formData.append(field, data[key]);
     }
 
-    axios({
-      method: 'post',
-      url: process.env.NEXT_PUBLIC_FORM_ENDPOINT,
-      data: formData,
+    fetch(process.env.NEXT_PUBLIC_FORM_ENDPOINT!, {
+      method: 'POST',
+      body: formData,
     })
       .then(() => {
         reset();
@@ -68,6 +78,9 @@ const Form = () => {
             color: '#fff',
           },
         });
+      })
+      .finally(() => {
+        setSendingState(initialSendingState);
       });
   };
 
@@ -115,8 +128,9 @@ const Form = () => {
         <button
           type='submit'
           className='btn mt-10 w-full max-w-sm bg-fuchsia-400 text-lg font-medium'
+          disabled={sendingState.isDisabled}
         >
-          SEND
+          {sendingState.buttonLabel}
         </button>
       </div>
     </form>

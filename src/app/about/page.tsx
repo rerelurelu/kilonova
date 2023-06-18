@@ -14,20 +14,12 @@ const intro = {
   para2: `以前はSESのエンジニアとして業務支援アプリや会員制サイトの開発をしていました。フロントエンドからバックエンドまで経験がありますが、どちらかといえばフロントエンドが得意です。大学時代は画像認識の分野を学んでいたのでそこらへんの知識も少しあります。`,
 } as const;
 
-const siteName = 'zoniha';
-const description = ABOUT.DESCRIPTION;
-
 export const metadata: Metadata = {
-  title: {
-    default: siteName,
-    template: `%s - ${siteName}`,
-  },
-  description: description,
+  title: ABOUT.TITLE,
+  description: ABOUT.DESCRIPTION,
   openGraph: {
-    title: siteName,
-    siteName,
-    locale: 'ja_JP',
-    type: 'website',
+    title: ABOUT.TITLE,
+    description: ABOUT.DESCRIPTION,
   },
 };
 
