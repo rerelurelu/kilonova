@@ -5,13 +5,13 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Analytics } from '@vercel/analytics/react';
 import { Noto_Sans_JP, Overpass } from 'next/font/google';
 import { ReactNode } from 'react';
-import { RecoilRoot } from 'recoil';
 
 import '@/styles/global.scss';
 
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
 import client from '@/features/api/graphql/config/ApolloClientConfig';
+import CurrentPageProvider from 'providers/currentPageProvider';
 
 type Props = {
   children: ReactNode;
@@ -34,8 +34,8 @@ const RootLayout = ({ children }: Props) => {
   return (
     <html lang='ja' data-theme='mytheme' className={`${overpass.variable} ${notoSansJP.variable}`}>
       <Analytics mode={'production'} />;
-      <RecoilRoot>
-        <body>
+      <body>
+        <CurrentPageProvider>
           <ApolloProvider client={client}>
             <Header />
             <div className='min-h-screen'>
@@ -43,8 +43,8 @@ const RootLayout = ({ children }: Props) => {
             </div>
             <Footer />
           </ApolloProvider>
-        </body>
-      </RecoilRoot>
+        </CurrentPageProvider>
+      </body>
     </html>
   );
 };

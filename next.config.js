@@ -13,6 +13,7 @@ const nextConfig = withInterceptStdout(
     experimental: {
       scrollRestoration: true,
     },
+    images: { unoptimized: true },
     output: 'export',
   },
   (text) => (text.includes('Duplicate atom key') ? '' : text),
