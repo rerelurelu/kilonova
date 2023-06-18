@@ -1,20 +1,13 @@
 import Parser from 'rss-parser';
 
-import { GET_POSTS_QUERY } from '../api/graphql/queries/GetPostsQuery';
-
 import { ZENN_FEED_URL } from '@/const/url';
-import client from '@/features/api/graphql/config/ApolloClientConfig';
 import { BlogPost, Post, ZennPost } from '@/types/post';
 
 export const getPosts = async (): Promise<Post[]> => {
   const parser = new Parser();
-  const feedZenn: ZennPost = await parser.parseURL(ZENN_FEED_URL);
-
-  const { data } = await client.query({
-    query: GET_POSTS_QUERY,
-  });
-
   const posts: Post[] = [];
+  const feedZenn: ZennPost = await parser.parseURL(ZENN_FEED_URL);
+  const myPosts = await getBlogPosts();
 
   feedZenn.items.map((post: ZennPost) => {
     posts.push({
@@ -26,7 +19,7 @@ export const getPosts = async (): Promise<Post[]> => {
     });
   });
 
-  data.posts.map((post: BlogPost) => {
+  myPosts.map((post: BlogPost) => {
     posts.push({
       key: post.id,
       link: `/blog/${post.slug}`,
@@ -39,4 +32,30 @@ export const getPosts = async (): Promise<Post[]> => {
   posts.sort((x, y) => (x.createdAt > y.createdAt ? -1 : 1));
 
   return posts;
+};
+
+export const getBlogPosts = async (): Promise<BlogPost[]> => {
+  const response = await fetch(process.env.NEXT_PUBLIC_CONTENT_API!, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query GetPosts {
+          posts(orderBy: publishedAt_DESC, last: 30) {
+            createdAt
+            title
+            slug
+            id
+          }
+        }
+      `,
+    }),
+  });
+
+  const { data } = await response.json();
+
+  return data.posts;
 };

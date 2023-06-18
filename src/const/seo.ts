@@ -6,14 +6,8 @@ type SEO = {
 
 // Home page
 export const HOME: SEO = {
-  TITLE: `zoniha's playground`,
+  TITLE: `zoniha's tech blog`,
   DESCRIPTION: `zoniha's personal website`,
-};
-
-// Authentication page
-export const AUTH: SEO = {
-  TITLE: 'Auth',
-  DESCRIPTION: 'Authentication page to read non-public articles',
 };
 
 // Blog page
@@ -32,10 +26,4 @@ export const ABOUT: SEO = {
 export const CONTACT: SEO = {
   TITLE: 'Contact',
   DESCRIPTION: 'Contact form',
-};
-
-// 404
-export const NOT_FOUND: SEO = {
-  TITLE: '404 Not Found',
-  DESCRIPTION: 'This page could not be found',
 };

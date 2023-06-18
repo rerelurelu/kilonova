@@ -14,20 +14,12 @@ const intro = {
   para2: `以前はSESのエンジニアとして業務支援アプリや会員制サイトの開発をしていました。フロントエンドからバックエンドまで経験がありますが、どちらかといえばフロントエンドが得意です。大学時代は画像認識の分野を学んでいたのでそこらへんの知識も少しあります。`,
 } as const;
 
-const siteName = 'zoniha';
-const description = ABOUT.DESCRIPTION;
-
 export const metadata: Metadata = {
-  title: {
-    default: siteName,
-    template: `%s - ${siteName}`,
-  },
-  description: description,
+  title: ABOUT.TITLE,
+  description: ABOUT.DESCRIPTION,
   openGraph: {
-    title: siteName,
-    siteName,
-    locale: 'ja_JP',
-    type: 'website',
+    title: ABOUT.TITLE,
+    description: ABOUT.DESCRIPTION,
   },
 };
 
@@ -36,7 +28,7 @@ const About: NextPage = () => {
     <div className='mt-24 grid place-items-center px-6 md:mt-36'>
       <div className='avatar'>
         <div className='h-48 w-48 rounded-full ring ring-secondary ring-offset-2 ring-offset-base-100'>
-          <Image src='avatar.png' alt="zoniha's avatar image" />
+          <Image src='avatar.png' width={512} height={512} alt="zoniha's avatar image" />
         </div>
       </div>
       <span className='mt-10 text-4xl'>zoniha</span>

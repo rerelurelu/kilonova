@@ -1,17 +1,15 @@
-'use client';
-
-import { ApolloProvider } from '@apollo/client';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { Analytics } from '@vercel/analytics/react';
 import { Noto_Sans_JP, Overpass } from 'next/font/google';
 import { ReactNode } from 'react';
-import { RecoilRoot } from 'recoil';
 
 import '@/styles/global.scss';
 
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
-import client from '@/features/api/graphql/config/ApolloClientConfig';
+import { HOME } from '@/const/seo';
+import { SITE_URL } from '@/const/url';
+import CurrentPageProvider from 'providers/currentPageProvider';
 
 type Props = {
   children: ReactNode;
@@ -30,21 +28,34 @@ const notoSansJP = Noto_Sans_JP({
   display: 'swap',
 });
 
+export const metadata = {
+  title: {
+    default: HOME.TITLE,
+    template: '%s | zoniha',
+  },
+  description: HOME.DESCRIPTION,
+  openGraph: {
+    title: HOME.TITLE,
+    description: HOME.DESCRIPTION,
+    url: SITE_URL,
+    locale: 'ja_JP',
+    type: 'website',
+  },
+};
+
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang='ja' data-theme='mytheme' className={`${overpass.variable} ${notoSansJP.variable}`}>
-      <Analytics mode={'production'} />;
-      <RecoilRoot>
-        <body>
-          <ApolloProvider client={client}>
-            <Header />
-            <div className='min-h-screen'>
-              <div className='px-12 pb-60 pt-20'>{children}</div>
-            </div>
-            <Footer />
-          </ApolloProvider>
-        </body>
-      </RecoilRoot>
+      <Analytics mode={'production'} />
+      <body>
+        <CurrentPageProvider>
+          <Header />
+          <div className='min-h-screen'>
+            <div className='px-12 pb-60 pt-20'>{children}</div>
+          </div>
+          <Footer />
+        </CurrentPageProvider>
+      </body>
     </html>
   );
 };

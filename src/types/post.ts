@@ -4,6 +4,7 @@ export interface Post {
   title: string;
   createdAt: string;
   tags: string[];
+  slug?: string;
 }
 
 export interface ZennPost {
@@ -16,4 +17,5 @@ export interface BlogPost {
   title: string;
   slug: string;
   id: string;
+  content: string;
 }
