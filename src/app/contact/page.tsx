@@ -1,7 +1,7 @@
-import { Metadata, NextPage } from 'next';
+import { Metadata } from 'next';
 
-import Form from '@/components/ui/form';
-import MyToaster from '@/components/ui/toaster';
+import { Form } from '@/components/ui/form';
+import { MyToaster } from '@/components/ui/toaster';
 import { CONTACT } from '@/const/seo';
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-const Contact: NextPage = () => {
+export default function Contact() {
   return (
     <>
       <MyToaster />
@@ -25,6 +25,4 @@ const Contact: NextPage = () => {
       <Form />
     </>
   );
-};
-
-export default Contact;
+}

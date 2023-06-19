@@ -5,8 +5,8 @@ import { ReactNode } from 'react';
 
 import '@/styles/global.scss';
 
-import Footer from '@/components/ui/footer';
-import Header from '@/components/ui/header';
+import { Footer } from '@/components/ui/footer';
+import { Header } from '@/components/ui/header';
 import { HOME } from '@/const/seo';
 import { SITE_URL } from '@/const/url';
 import CurrentPageProvider from 'providers/currentPageProvider';
