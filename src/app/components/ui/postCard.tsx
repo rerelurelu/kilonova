@@ -12,7 +12,7 @@ type Props = {
   tags: string[];
 };
 
-const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
+export const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
   const dateDisplay = convertDateDisplay(createdAt.slice(0, 10));
 
   return (
@@ -52,5 +52,3 @@ const PostCard: NextPage<Props> = ({ title, href, createdAt, tags }) => {
     </article>
   );
 };
-
-export default PostCard;

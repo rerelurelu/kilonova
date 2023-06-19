@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ENTRIES } from '@/const/entries';
 import { useCurrentPage } from '@/hooks/useCurrentPage';
 
-const Header: NextPage = () => {
+export const Header: NextPage = () => {
   const currentPage = useCurrentPage();
 
   return (
@@ -32,5 +32,3 @@ const Header: NextPage = () => {
     </div>
   );
 };
-
-export default Header;

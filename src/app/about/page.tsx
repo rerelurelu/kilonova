@@ -1,4 +1,4 @@
-import { Metadata, NextPage } from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-const About: NextPage = () => {
+export default function About() {
   return (
     <div className='mt-24 grid place-items-center px-6 md:mt-36'>
       <div className='avatar'>
@@ -50,6 +50,4 @@ const About: NextPage = () => {
       </div>
     </div>
   );
-};
-
-export default About;
+}

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import BlogField from '@/components/model/blogField';
+import { BlogField } from '@/components/model/blogField';
 import { HOME } from '@/const/seo';
 import { getPosts } from '@/features/api/getPosts';
 import { Post } from '@/types/post';

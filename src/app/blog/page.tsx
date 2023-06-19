@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-import BlogField from '@/components/model/blogField';
+import { BlogField } from '@/components/model/blogField';
 import { BLOG } from '@/const/seo';
 import { getPosts } from '@/features/api/getPosts';
 import { Post } from '@/types/post';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const Home = async () => {
+export default async function Home() {
   const posts: Post[] = await getPosts();
 
   return (
@@ -29,6 +29,4 @@ const Home = async () => {
       <BlogField posts={posts} />
     </>
   );
-};
-
-export default Home;
+}

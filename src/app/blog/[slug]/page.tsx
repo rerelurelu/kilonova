@@ -32,7 +32,7 @@ export const generateMetadata = async ({
   };
 };
 
-const Blog = async ({ params: { slug } }: { params: { slug: string } }) => {
+export default async function Blog({ params: { slug } }: { params: { slug: string } }) {
   const post = await getPost(slug);
 
   if (!post) {
@@ -58,9 +58,7 @@ const Blog = async ({ params: { slug } }: { params: { slug: string } }) => {
       </article>
     </>
   );
-};
-
-export default Blog;
+}
 
 export const generateStaticParams = async () => {
   const posts: BlogPost[] = await getBlogPosts();

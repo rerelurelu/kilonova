@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSetRecoilState } from 'recoil';
 
-import PostCard from '@/components/ui/postCard';
+import { PostCard } from '@/components/ui/postCard';
 import { currentPageState } from '@/states/atoms/currentPage';
 import { Post } from '@/types/post';
 
@@ -13,7 +13,7 @@ type Props = {
   posts: Post[];
 };
 
-const BlogField: NextPage<Props> = ({ posts }) => {
+export const BlogField: NextPage<Props> = ({ posts }) => {
   const pathname = usePathname();
   const isHome: boolean = pathname === '/';
   const setCurrentPage = useSetRecoilState<string>(currentPageState);
@@ -50,5 +50,3 @@ const BlogField: NextPage<Props> = ({ posts }) => {
     </section>
   );
 };
-
-export default BlogField;

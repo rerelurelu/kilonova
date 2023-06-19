@@ -28,7 +28,7 @@ const inputContentType = {
 
 type inputContentType = (typeof inputContentType)[keyof typeof inputContentType];
 
-const Form = () => {
+export const Form = () => {
   const initialSendingState: Sending = {
     isDisabled: false,
     buttonLabel: 'SEND',
@@ -136,5 +136,3 @@ const Form = () => {
     </form>
   );
 };
-
-export default Form;
