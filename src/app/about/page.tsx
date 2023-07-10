@@ -4,14 +4,16 @@ import Link from 'next/link';
 
 import { ABOUT } from '@/const/seo';
 
-const links = [
-  { href: 'https://github.com/zoniha', content: 'GitHub' },
-  { href: 'https://zenn.dev/astrologian', content: 'Zenn' },
-] as const;
+const iconSize = 24;
+
+const sns = {
+  github: { href: 'https://github.com/zoniha' },
+  zenn: { href: 'https://zenn.dev/astrologian' },
+} as const;
 
 const intro = {
-  para1: `現在転職活動中です 🦈`,
-  para2: `以前はSESのエンジニアとして業務支援アプリや会員制サイトの開発をしていました。フロントエンドからバックエンドまで経験がありますが、どちらかといえばフロントエンドが得意です。大学時代は画像認識の分野を学んでいたのでそこらへんの知識も少しあります。`,
+  para1: `フロントエンドエンジニア（仮）`,
+  para2: ``,
 } as const;
 
 export const metadata: Metadata = {
@@ -33,16 +35,22 @@ export default function About() {
       </div>
       <span className='mt-10 text-4xl'>zoniha</span>
       <ul className='mt-6 flex list-none flex-wrap gap-4'>
-        {links.map(({ href, content }) => {
-          return (
-            <li key={content}>
-              <Link href={href} target='_blank' className='underline hover:opacity-70'>
-                {content}
-                <span className='ml-1 inline-block -rotate-45'>→</span>
-              </Link>
-            </li>
-          );
-        })}
+        <li>
+          <Link href={sns.github.href} target='_blank' className='underline hover:opacity-70'>
+            <Image
+              className='fill-blue-500'
+              src='icons/github-logo.svg'
+              width={iconSize}
+              height={iconSize}
+              alt='GitHub logo'
+            />
+          </Link>
+        </li>
+        <li>
+          <Link href={sns.zenn.href} target='_blank' className='underline hover:opacity-70'>
+            <Image src='icons/zenn-logo.svg' width={iconSize} height={iconSize} alt='Zenn logo' />
+          </Link>
+        </li>
       </ul>
       <div className='mt-20 grid w-full max-w-4xl place-items-center leading-6'>
         <p>{intro.para1}</p>
