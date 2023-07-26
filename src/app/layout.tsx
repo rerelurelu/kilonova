@@ -31,7 +31,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata = {
   title: {
     default: HOME.TITLE,
-    template: '%s | zoniha',
+    template: '%s | relu',
   },
   description: HOME.DESCRIPTION,
   openGraph: {

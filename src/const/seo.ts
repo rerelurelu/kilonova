@@ -6,8 +6,8 @@ type SEO = {
 
 // Home page
 export const HOME: SEO = {
-  TITLE: `zoniha's tech blog`,
-  DESCRIPTION: `zoniha's personal website`,
+  TITLE: `relu's tech blog`,
+  DESCRIPTION: `relu's personal website`,
 };
 
 // Blog page
