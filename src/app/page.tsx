@@ -7,11 +7,11 @@ import { Post } from '@/types/post';
 
 const intro = {
   para1: `Welcome to my site!`,
-  para2: `I'm zoniha.`,
+  para2: `I'm relu.`,
   para3: `I live in Tokyo, Japan.`,
 } as const;
 
-const siteName = 'zoniha';
+const siteName = 'relu';
 const description = HOME.DESCRIPTION;
 
 export const metadata: Metadata = {
