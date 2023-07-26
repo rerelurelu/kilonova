@@ -4,7 +4,7 @@ export const Footer: NextPage = () => {
   return (
     <footer className='footer footer-center border-t border-indigo-900 bg-base-100 py-12 tracking-widest text-base-content'>
       <div>
-        <p>© 2022 zoniha</p>
+        <p>© 2022 relu</p>
       </div>
     </footer>
   );
